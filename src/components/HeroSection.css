@@ -1,0 +1,18 @@
+/* App.css or HeroSection.css */
+.explore-btn {
+    margin-left: 10px;
+    background-color: transparent;
+    color: #008000;
+    border: 2px solid #008000;  /* Increased border thickness */
+    padding: 15px 30px;  /* Increased padding for bigger size */
+    font-size: 18px;  /* Increased font size */
+    border-radius: 8px;  /* Add rounded corners */
+    cursor: pointer;  /* Show pointer cursor on hover */
+    transition: all 0.3s ease;  /* Smooth hover transition */
+  }
+  
+  .explore-btn:hover {
+    background-color: #008000;  /* Change background color on hover */
+    color: #ffffff;  /* Change text color on hover */
+  }
+

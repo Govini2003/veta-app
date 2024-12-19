@@ -1,0 +1,81 @@
+/* Header.css */
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 10%;
+    background-color: #008000; /* Set navbar background color to green */
+    display: flex;
+    justify-content: space-between; /* Ensures space between the logo and nav items */
+    align-items: center;
+    z-index: 10;
+  }
+  
+  .navbar {
+    width: 100%; /* Ensure navbar stretches across the page */
+  }
+  
+  .logo {
+    font-family: 'Fredoka One', sans-serif; /* Custom font for Veta.lk */
+    font-size: 46px;
+    padding: 0;
+    color: #fff;
+    padding-left: 40px;
+    display: flex;
+    align-items: center; /* Vertically center the logo image with the text */
+  }
+  
+  /* Navbar links */
+  .navbar .nav-link {
+    color: #fff; /* Text color for navbar links */
+    font-weight: 500;
+    font-size: 16px;
+    padding: 10px 15px; /* Adjust padding for navbar links */
+  }
+  
+  /* Change link color to yellow when hovered */
+  .navbar .nav-link:hover {
+    color: #FFFF00; /* Yellow color on hover */
+  }
+  
+  /* Dropdown items */
+  .navbar .nav-dropdown-item {
+    color: #008000; /* Set the text color for dropdown items */
+    background-color: #ffffff; /* White background for dropdown items */
+  }
+  
+  .navbar .nav-dropdown-item:hover {
+    background-color: #008000;
+    color: #FFFF00; /* Change text color to yellow on hover */
+  }
+  
+  /* Dropdown menu background */
+  .navbar .nav-dropdown-menu {
+    background-color: #ffffff; /* Set the background color for the dropdown menu */
+    border: 1px solid #ddd; /* Optional: Add a border to the dropdown */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add shadow to the dropdown */
+    position: absolute; /* Ensure the dropdown stays visible */
+    top: 100%; /* Position the dropdown directly below the navbar */
+    left: 0;
+    right: 0;
+    z-index: 9999; /* Make sure the dropdown stays on top */
+  }
+  
+  /* Adjust the navbar for mobile view */
+  @media (max-width: 768px) {
+    .header {
+      padding: 20px 5%; /* Adjust padding for smaller screens */
+    }
+  
+    .logo {
+      font-size: 24px; /* Smaller font size for the logo on smaller screens */
+    }
+  
+    .navbar .nav-link {
+      font-size: 14px; /* Adjust font size for navbar links on smaller screens */
+      padding: 8px 12px; /* Adjust padding for navbar links on smaller screens */
+    }
+  }
+  

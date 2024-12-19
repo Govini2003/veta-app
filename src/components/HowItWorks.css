@@ -1,0 +1,54 @@
+.how-it-works-section {
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+  }
+  
+  .how-it-works-heading {
+    font-size: 2.5rem;
+    color: #000000; 
+    margin-bottom: 30px;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .how-it-works-steps {
+    display: flex;
+    flex-wrap: wrap; /* Make it responsive */
+    justify-content: center; /* Center the steps */
+    gap: 20px; /* Space between steps */
+  }
+  
+  .how-it-works-step {
+    background: #ffffff;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+    width: 250px; /* Fixed width for each step */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+  }
+  
+  .how-it-works-step:hover {
+    transform: translateY(-10px); /* Lift the card on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .step-icon {
+    font-size: 3rem;
+    color: #008000; /* Green color for icons */
+    margin-bottom: 10px;
+  }
+  
+  .how-it-works-step h3 {
+    font-size: 1.5rem;
+    color: #333333;
+    margin-bottom: 10px;
+  }
+  
+  .how-it-works-step p {
+    font-size: 1rem;
+    color: #555555;
+    line-height: 1.5;
+  }
+  
