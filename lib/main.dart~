@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:veta_1/screens/welcome_screen.dart';
-import 'package:veta_1/themes/theme.dart';
+import 'package:login/screens/welcome_screen.dart';
+import 'package:login/themes/theme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: lightMode,
+      
       home: const SplashScreen(),
     );
   }
@@ -50,19 +50,17 @@ class _SplashScreenState extends State<SplashScreen>
     );
 
     // Slide-up Effect
-    _slideAnimation =
-        Tween<Offset>(begin: const Offset(0, 0.5), end: Offset.zero).animate(
+    _slideAnimation = Tween<Offset>(begin: const Offset(0, 0.5), end: Offset.zero)
+        .animate(
       CurvedAnimation(parent: _controller, curve: Curves.easeOut),
     );
 
     _controller.forward();
 
-    // Auto-Navigate after Splash Screen
+    // Auto-Navigate after Splash Screen (Placeholder: Add Your Navigation Logic)
     Timer(const Duration(seconds: 3), () {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => const WelcomeScreen()),
-      );
+      // Replace with your actual home page navigation
+      print("Splash Screen Completed. Navigate to Home Page.");
     });
   }
 
