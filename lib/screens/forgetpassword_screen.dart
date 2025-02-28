@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:veta_1/screens/verification_code_screen.dart';
+import 'verification_code_screen.dart';
 
 class ForgetPasswordScreen extends StatefulWidget {
   const ForgetPasswordScreen({super.key});
@@ -14,12 +14,10 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
 
   void _sendVerificationCode() {
     if (_formKey.currentState!.validate()) {
-      // Simulate sending a verification code to email
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) =>
-              VerificationCodeScreen(email: _emailController.text),
+          builder: (context) => VerificationCodeScreen(email: _emailController.text),
         ),
       );
     }
@@ -47,8 +45,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter your email';
-                  } else if (!RegExp(r"^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$")
-                      .hasMatch(value)) {
+                  } else if (!RegExp(r"^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$").hasMatch(value)) {
                     return 'Enter a valid email';
                   }
                   return null;
@@ -56,7 +53,8 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                 decoration: InputDecoration(
                   labelText: 'Email',
                   border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10)),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
                 ),
               ),
               const SizedBox(height: 20),

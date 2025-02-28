@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:veta_1/screens/signup_screen.dart';
-import 'package:veta_1/screens/forgetpassword_screen.dart';
-import 'package:veta_1/widgets/custom_scaffold.dart';
-import 'package:veta_1/themes/theme.dart';
+import 'forgetpassword_screen.dart';
+import 'signup_screen.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart'; // Add this import
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
@@ -18,8 +16,8 @@ class _SignInScreenState extends State<SignInScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScaffold(
-      child: Column(
+    return Scaffold(
+      body: Column(
         children: [
           const Expanded(
             flex: 1,
@@ -47,7 +45,7 @@ class _SignInScreenState extends State<SignInScreen> {
                         style: TextStyle(
                           fontSize: 30.0,
                           fontWeight: FontWeight.w900,
-                          color: lightColorScheme.primary,
+                          color: Theme.of(context).colorScheme.primary,
                         ),
                       ),
                       const SizedBox(height: 40.0),
@@ -109,7 +107,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                     rememberPassword = value!;
                                   });
                                 },
-                                activeColor: lightColorScheme.primary,
+                                activeColor: Theme.of(context).colorScheme.primary,
                               ),
                               const Text(
                                 'Remember me',
@@ -122,8 +120,7 @@ class _SignInScreenState extends State<SignInScreen> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) =>
-                                      const ForgetPasswordScreen(),
+                                  builder: (context) => const ForgetPasswordScreen(),
                                 ),
                               );
                             },
@@ -131,7 +128,7 @@ class _SignInScreenState extends State<SignInScreen> {
                               'Forget password?',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                color: lightColorScheme.primary,
+                                color: Theme.of(context).colorScheme.primary,
                               ),
                             ),
                           ),
@@ -142,53 +139,19 @@ class _SignInScreenState extends State<SignInScreen> {
                         width: double.infinity,
                         child: ElevatedButton(
                           onPressed: () {
-                            if (_formSignInKey.currentState!.validate() &&
-                                rememberPassword) {
+                            if (_formSignInKey.currentState!.validate() && rememberPassword) {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
-                                    content: Text('Processing Data')),
+                                  content: Text('Processing Data')),
                               );
                             } else if (!rememberPassword) {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
-                                    content: Text(
-                                        'Please agree to the processing of personal data')),
+                                  content: Text('Please agree to the processing of personal data')),
                               );
                             }
                           },
-                          child: const Text('Sign In'),
-                        ),
-                      ),
-                      const SizedBox(height: 25.0),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Expanded(
-                              child: Divider(
-                                  thickness: 0.7,
-                                  color: Colors.grey.withOpacity(0.5))),
-                          const Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 10),
-                            child: Text(
-                              'Sign in with',
-                              style: TextStyle(color: Colors.black45),
-                            ),
-                          ),
-                          Expanded(
-                              child: Divider(
-                                  thickness: 0.7,
-                                  color: Colors.grey.withOpacity(0.5))),
-                        ],
-                      ),
-                      const SizedBox(height: 25.0),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          FaIcon(FontAwesomeIcons.facebook),
-                          FaIcon(FontAwesomeIcons.twitter),
-                          FaIcon(FontAwesomeIcons.google),
-                          FaIcon(FontAwesomeIcons.apple),
-                        ],
+                          child: const Text('Sign In')),
                       ),
                       const SizedBox(height: 25.0),
                       Row(
@@ -201,14 +164,15 @@ class _SignInScreenState extends State<SignInScreen> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (e) => const SignUpScreen()),
+                                  builder: (e) => const SignUpScreen(),
+                                ),
                               );
                             },
                             child: Text(
                               'Sign up',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                color: lightColorScheme.primary,
+                                color: Theme.of(context).colorScheme.primary,
                               ),
                             ),
                           ),

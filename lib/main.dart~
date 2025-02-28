@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:login/screens/welcome_screen.dart';
-import 'package:login/themes/theme.dart';
+import 'screens/welcome_screen.dart';
+import 'themes/theme.dart';
+import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart'; // For FontAwesomeIcons
 
 void main() {
   runApp(const MyApp());

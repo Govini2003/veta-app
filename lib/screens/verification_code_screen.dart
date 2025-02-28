@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class VerificationCodeScreen extends StatefulWidget {
   final String email;
+
   const VerificationCodeScreen({super.key, required this.email});
 
   @override
@@ -14,11 +15,9 @@ class _VerificationCodeScreenState extends State<VerificationCodeScreen> {
 
   void _verifyCode() {
     if (_formKey.currentState!.validate()) {
-      // Simulate verification process
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Verification Successful!')),
       );
-      // Navigate to reset password screen (to be implemented)
     }
   }
 
@@ -52,7 +51,8 @@ class _VerificationCodeScreenState extends State<VerificationCodeScreen> {
                 decoration: InputDecoration(
                   labelText: 'Verification Code',
                   border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10)),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
                 ),
               ),
               const SizedBox(height: 20),

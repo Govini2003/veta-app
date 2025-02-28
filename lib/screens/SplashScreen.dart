@@ -1,26 +1,6 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart'; // For FontAwesomeIcons
 import 'screens/welcome_screen.dart';
-import 'themes/theme.dart';
-
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: lightMode,
-      home: const SplashScreen(),
-    );
-  }
-}
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -38,29 +18,17 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   void initState() {
     super.initState();
-
-    // Animation Controller
     _controller = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 2),
     );
-
-    // Fade-in Effect
     _fadeAnimation = Tween<double>(begin: 0, end: 1).animate(
       CurvedAnimation(parent: _controller, curve: Curves.easeIn),
     );
-
-    // Slide-up Effect
-    _slideAnimation = Tween<Offset>(
-      begin: const Offset(0, 0.5),
-      end: Offset.zero,
-    ).animate(
+    _slideAnimation = Tween<Offset>(begin: const Offset(0, 0.5), end: Offset.zero).animate(
       CurvedAnimation(parent: _controller, curve: Curves.easeOut),
     );
-
     _controller.forward();
-
-    // Auto-Navigate after Splash Screen
     Timer(const Duration(seconds: 3), () {
       Navigator.pushReplacement(
         context,
@@ -84,9 +52,9 @@ class _SplashScreenState extends State<SplashScreen>
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              Color(0xFF357376), // Medium Greenish Shade
-              Color(0xFF1D4D4F), // Darkest Brand Color
-              Color(0xFF6BA8A9), // Lightest Green
+              Color(0xFF357376),
+              Color(0xFF1D4D4F),
+              Color(0xFF6BA8A9),
             ],
             begin: Alignment.topRight,
             end: Alignment.bottomLeft,
@@ -103,7 +71,7 @@ class _SplashScreenState extends State<SplashScreen>
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const Icon(
+                    Icon(
                       Icons.pets,
                       color: Colors.white,
                       size: 45,

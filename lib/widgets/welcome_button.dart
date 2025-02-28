@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
 
 class WelcomeButton extends StatelessWidget {
-  const WelcomeButton(
-      {super.key, this.buttonText, this.onTap, this.color, this.textColor});
   final String? buttonText;
   final Widget? onTap;
   final Color? color;
   final Color? textColor;
+
+  const WelcomeButton({
+    super.key,
+    this.buttonText,
+    this.onTap,
+    this.color,
+    this.textColor,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +28,7 @@ class WelcomeButton extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(30.0),
         decoration: BoxDecoration(
-          color: color!,
+          color: color,
           borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(50),
           ),
@@ -33,7 +39,7 @@ class WelcomeButton extends StatelessWidget {
           style: TextStyle(
             fontSize: 20.0,
             fontWeight: FontWeight.bold,
-            color: textColor!,
+            color: textColor,
           ),
         ),
       ),
