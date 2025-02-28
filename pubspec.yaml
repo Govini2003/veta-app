@@ -1,10 +1,10 @@
 name: veta_1
-description: "A new Flutter project."
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+description: A veterinary platform marketplace mobile app.
+publish_to: "none"
 version: 1.0.0+1
 
 environment:
-  sdk: ^3.6.1
+  sdk: ">=2.17.0 <4.0.0"
 
 dependencies:
   flutter:
@@ -20,5 +20,15 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/Poppins-Bold.ttf
+          weight: 700
+    - family: Questrial
+      fonts:
+        - asset: assets/fonts/Questrial-Regular.ttf
+          weight: 500
+
   assets:
     - assets/images/background/bg1.png

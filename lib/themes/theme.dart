@@ -8,11 +8,11 @@ const lightColorScheme = ColorScheme(
   onSecondary: Color(0xE9EFECFF),
   error: Color(0xFFBA1A1A),
   onError: Color(0xFFFFFFFF),
-  background: Color(0xFFFCFDF6),
+  background: Color(0xFFCFDF6),
   onBackground: Color(0xFF1A1C18),
   shadow: Color(0xFF000000),
   outlineVariant: Color(0xFFC2C8BC),
-  surface: Color(0xFFF9FAF3),
+  surface: Color(0xFFFF9FAF3),
   onSurface: Color(0xFF1A1C18),
 );
 
@@ -24,11 +24,11 @@ const darkColorScheme = ColorScheme(
   onSecondary: Color(0xFFFFFFFF),
   error: Color(0xFFBA1A1A),
   onError: Color(0xFFFFFFFF),
-  background: Color(0xFFFCFDF6),
+  background: Color(0xFFCFDF6),
   onBackground: Color(0xFF1A1C18),
   shadow: Color(0xFF000000),
   outlineVariant: Color(0xFFC2C8BC),
-  surface: Color(0xFFF9FAF3),
+  surface: Color(0xFFFF9FAF3),
   onSurface: Color(0xFF1A1C18),
 );
 
@@ -37,14 +37,10 @@ final lightMode = ThemeData(
   brightness: Brightness.light,
   colorScheme: lightColorScheme,
   scaffoldBackgroundColor: lightColorScheme.background,
-
-  // Elevated Button Theme
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ButtonStyle(
-      backgroundColor:
-          MaterialStateProperty.all<Color>(lightColorScheme.primary),
-      foregroundColor:
-          MaterialStateProperty.all<Color>(lightColorScheme.onPrimary),
+      backgroundColor: MaterialStateProperty.all<Color>(lightColorScheme.primary),
+      foregroundColor: MaterialStateProperty.all<Color>(lightColorScheme.onPrimary),
       elevation: MaterialStateProperty.all<double>(2.0),
       padding: MaterialStateProperty.all<EdgeInsets>(
         const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
@@ -56,8 +52,6 @@ final lightMode = ThemeData(
       ),
     ),
   ),
-
-  // Text Field Theme
   inputDecorationTheme: InputDecorationTheme(
     filled: true,
     fillColor: lightColorScheme.surface,
@@ -79,8 +73,6 @@ final lightMode = ThemeData(
       borderSide: BorderSide(color: lightColorScheme.error),
     ),
   ),
-
-  // Text Theme
   textTheme: TextTheme(
     displayLarge: TextStyle(
       color: lightColorScheme.onBackground,
@@ -108,14 +100,10 @@ final darkMode = ThemeData(
   brightness: Brightness.dark,
   colorScheme: darkColorScheme,
   scaffoldBackgroundColor: darkColorScheme.background,
-
-  // Elevated Button Theme
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ButtonStyle(
-      backgroundColor:
-          MaterialStateProperty.all<Color>(darkColorScheme.primary),
-      foregroundColor:
-          MaterialStateProperty.all<Color>(darkColorScheme.onPrimary),
+      backgroundColor: MaterialStateProperty.all<Color>(darkColorScheme.primary),
+      foregroundColor: MaterialStateProperty.all<Color>(darkColorScheme.onPrimary),
       elevation: MaterialStateProperty.all<double>(2.0),
       padding: MaterialStateProperty.all<EdgeInsets>(
         const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
@@ -127,8 +115,6 @@ final darkMode = ThemeData(
       ),
     ),
   ),
-
-  // Text Field Theme
   inputDecorationTheme: InputDecorationTheme(
     filled: true,
     fillColor: darkColorScheme.surface,
@@ -150,8 +136,6 @@ final darkMode = ThemeData(
       borderSide: BorderSide(color: darkColorScheme.error),
     ),
   ),
-
-  // Text Theme
   textTheme: TextTheme(
     displayLarge: TextStyle(
       color: darkColorScheme.onBackground,
