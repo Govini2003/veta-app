@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'screens/splash_screen.dart';
 import 'add_owner_details_page.dart';
 import 'friends_page.dart';
 import 'services_page.dart';
@@ -8,9 +9,7 @@ import 'settings_page.dart';
 import 'models/pet_owner.dart';
 import 'services/pet_owner_service.dart';
 import 'theme/app_theme.dart';
-import 'screens/welcome_screen.dart';
-import 'screens/signin_screen.dart';
-import 'themes/theme.dart';
+import 'add_pet_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -200,9 +199,9 @@ class HomeScreen extends StatelessWidget {
                   MaterialPageRoute(
                     builder: (context) => AddPetPage(
                       onPetAdded: (pet) {
-                        // TODO: Handle the added pet
+                        // Handle the added pet
                         ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text('Pet added successfully!')),
+                          const SnackBar(content: Text('Pet added successfully!')),
                         );
                       },
                     ),
@@ -251,7 +250,7 @@ class HomeScreen extends StatelessWidget {
               title,
               style: const TextStyle(fontSize: 16),
             ),
-            const Icon(Icons.arrow_forward, color: Colors.white),
+            const Icon(Icons.arrow_forward_ios, size: 16),
           ],
         ),
       ),

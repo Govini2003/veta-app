@@ -7,7 +7,7 @@ class PetOwnerService extends ChangeNotifier {
   static final PetOwnerService _instance = PetOwnerService._internal();
   factory PetOwnerService() => _instance;
   
-  final DatabaseHelper _db = DatabaseHelper();
+  final DatabaseHelper _db = DatabaseHelper.instance;
   List<PetOwner> _petOwners = [];
   bool _initialized = false;
   PetOwner? _currentOwner;

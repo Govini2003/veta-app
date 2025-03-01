@@ -1,14 +1,16 @@
 import 'package:sqflite/sqflite.dart';
+import 'package:sqflite_common_ffi_web/sqflite_ffi_web.dart';
 import 'package:path/path.dart';
+import 'package:path_provider/path_provider.dart';
+import 'dart:io';
+import 'package:flutter/foundation.dart' show kIsWeb;
 import '../models/pet_owner.dart';
 
 class DatabaseHelper {
-  static final DatabaseHelper _instance = DatabaseHelper._internal();
+  static final DatabaseHelper instance = DatabaseHelper._init();
   static Database? _database;
 
-  factory DatabaseHelper() => _instance;
-
-  DatabaseHelper._internal();
+  DatabaseHelper._init();
 
   Future<Database> get database async {
     if (_database != null) return _database!;
@@ -17,13 +19,26 @@ class DatabaseHelper {
   }
 
   Future<Database> _initDatabase() async {
-    String path = join(await getDatabasesPath(), 'pet_owners.db');
-    return await openDatabase(
-      path,
-      version: 2,
-      onCreate: _onCreate,
-      onUpgrade: _onUpgrade,
-    );
+    if (kIsWeb) {
+      var factory = databaseFactoryFfiWeb;
+      return await factory.openDatabase(
+        'pet_owners.db',
+        options: OpenDatabaseOptions(
+          version: 2,
+          onCreate: _onCreate,
+          onUpgrade: _onUpgrade,
+        ),
+      );
+    } else {
+      final documentsDirectory = await getApplicationDocumentsDirectory();
+      final path = join(documentsDirectory.path, 'pet_owners.db');
+      return await openDatabase(
+        path,
+        version: 2,
+        onCreate: _onCreate,
+        onUpgrade: _onUpgrade,
+      );
+    }
   }
 
   Future<void> _onCreate(Database db, int version) async {
@@ -129,7 +144,7 @@ class DatabaseHelper {
   }
 
   Future<int> insertPetOwner(PetOwner owner) async {
-    final db = await database;
+    Database db = await instance.database;
     return await db.insert(
       'pet_owners',
       {
@@ -150,7 +165,7 @@ class DatabaseHelper {
   }
 
   Future<void> savePetOwner(PetOwner owner) async {
-    final db = await database;
+    Database db = await instance.database;
     await db.insert(
       'pet_owners',
       owner.toMap(),
@@ -159,7 +174,7 @@ class DatabaseHelper {
   }
 
   Future<void> updatePetOwner(PetOwner owner) async {
-    final db = await database;
+    Database db = await instance.database;
     await db.update(
       'pet_owners',
       owner.toMap(),
@@ -169,7 +184,7 @@ class DatabaseHelper {
   }
 
   Future<List<PetOwner>> getPetOwners() async {
-    final db = await database;
+    Database db = await instance.database;
     final List<Map<String, dynamic>> maps = await db.query('pet_owners');
     
     return List.generate(maps.length, (i) {
@@ -192,7 +207,7 @@ class DatabaseHelper {
   }
 
   Future<int> updatePetOwnerOld(PetOwner owner) async {
-    final db = await database;
+    Database db = await instance.database;
     return await db.update(
       'pet_owners',
       {
@@ -214,7 +229,7 @@ class DatabaseHelper {
   }
 
   Future<int> deletePetOwner(String email) async {
-    final db = await database;
+    Database db = await instance.database;
     return await db.delete(
       'pet_owners',
       where: 'email = ?',
