@@ -1,4 +1,4 @@
-name: veta_1
+name: veta_app
 description: A veterinary platform marketplace mobile app.
 publish_to: "none"
 version: 1.0.0+1
@@ -12,6 +12,10 @@ dependencies:
   cupertino_icons: ^1.0.8
   google_fonts: ^6.2.1
   font_awesome_flutter: ^10.7.0
+  image_picker: ^1.1.2
+  image_picker_for_web: ^3.0.6
+  uuid: ^4.3.3
+  shared_preferences: ^2.2.2
 
 dev_dependencies:
   flutter_test:
