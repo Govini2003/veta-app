@@ -1,146 +1,156 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart'; // For FontAwesomeIcons
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'add_owner_details_page.dart';
+import 'friends_page.dart';
+import 'services_page.dart';
+import 'settings_page.dart';
+import 'models/pet_owner.dart';
+import 'services/pet_owner_service.dart';
+import 'theme/app_theme.dart';
 import 'screens/welcome_screen.dart';
 import 'screens/signin_screen.dart';
 import 'themes/theme.dart';
-import 'pet profile/add_pet_pagee.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
       title: 'Veta.lk',
-      theme: lightMode,
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primaryColor: AppTheme.primaryColor,
+        scaffoldBackgroundColor: AppTheme.backgroundColor,
+        colorScheme: ColorScheme.fromSeed(seedColor: AppTheme.primaryColor),
+        useMaterial3: true,
+      ),
       home: const SplashScreen(),
     );
   }
 }
 
-class SplashScreen extends StatefulWidget {
-  const SplashScreen({super.key});
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
 
   @override
-  _SplashScreenState createState() => _SplashScreenState();
+  _HomePageState createState() => _HomePageState();
 }
 
-class _SplashScreenState extends State<SplashScreen>
-    with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
-  late Animation<double> _fadeAnimation;
-  late Animation<Offset> _slideAnimation;
+class _HomePageState extends State<HomePage> {
+  final PetOwnerService _petOwnerService = PetOwnerService();
+  PetOwner? _currentOwner;
+  int _selectedIndex = 0;
+  int _pendingRequestsCount = 0;
 
   @override
   void initState() {
     super.initState();
+    _loadCurrentOwner();
+    _setupFriendRequestListener();
+  }
 
-    _controller = AnimationController(
-      vsync: this,
-      duration: const Duration(seconds: 2),
-    );
-
-    _fadeAnimation = Tween<double>(begin: 0, end: 1).animate(
-      CurvedAnimation(parent: _controller, curve: Curves.easeIn),
-    );
-
-    _slideAnimation = Tween<Offset>(
-      begin: const Offset(0, 0.5),
-      end: Offset.zero,
-    ).animate(
-      CurvedAnimation(parent: _controller, curve: Curves.easeOut),
-    );
-
-    _controller.forward();
-
-    Timer(const Duration(seconds: 3), () {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => const SignInScreen()),
-      );
+  Future<void> _loadCurrentOwner() async {
+    final owner = await _petOwnerService.getCurrentOwner();
+    setState(() {
+      _currentOwner = owner;
+      if (owner != null) {
+        _pendingRequestsCount = owner.pendingFriendRequests.length;
+      }
     });
   }
 
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
+  void _setupFriendRequestListener() {
+    _petOwnerService.friendRequestStream.listen((requester) {
+      setState(() {
+        _pendingRequestsCount++;
+      });
+    });
+  }
+
+  Widget _buildBody() {
+    switch (_selectedIndex) {
+      case 0:
+        return AddOwnerDetailsPage(
+          initialOwner: _currentOwner,
+          onOwnerUpdated: (owner) {
+            setState(() {
+              _currentOwner = owner;
+            });
+          },
+        );
+      case 1:
+        return FriendsPage();
+      case 2:
+        return ServicesPage(
+          bookings: _currentOwner?.serviceBookings ?? [],
+          onBookingAdded: (booking) {
+            if (_currentOwner != null) {
+              setState(() {
+                _currentOwner = _currentOwner!.copyWith(
+                  serviceBookings: [..._currentOwner!.serviceBookings, booking],
+                );
+              });
+              _petOwnerService.updatePetOwner(_currentOwner!);
+            }
+          },
+        );
+      case 3:
+        return SettingsPage(
+          onSettingsChanged: () {
+            setState(() {
+              // Reload the current owner to reflect any settings changes
+              _loadCurrentOwner();
+            });
+          },
+        );
+      default:
+        return const SizedBox.shrink();
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        width: double.infinity,
-        height: double.infinity,
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              Color(0xFF357376), // Medium Greenish Shade
-              Color(0xFF1D4D4F), // Darkest Brand Color
-              Color(0xFF6BA8A9), // Lightest Green
-            ],
-            begin: Alignment.topRight,
-            end: Alignment.bottomLeft,
+      body: _buildBody(),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectedIndex,
+        selectedItemColor: AppTheme.primaryColor,
+        unselectedItemColor: Colors.grey,
+        type: BottomNavigationBarType.fixed,
+        onTap: (index) {
+          setState(() {
+            _selectedIndex = index;
+          });
+        },
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Profile',
           ),
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            FadeTransition(
-              opacity: _fadeAnimation,
-              child: SlideTransition(
-                position: _slideAnimation,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    const Icon(
-                      Icons.pets,
-                      color: Colors.white,
-                      size: 45,
-                    ),
-                    const SizedBox(width: 8),
-                    Text(
-                      'Veta.lk',
-                      style: GoogleFonts.poppins(
-                        fontSize: 50,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+          BottomNavigationBarItem(
+            icon: Badge(
+              label: Text(_pendingRequestsCount > 0 ? _pendingRequestsCount.toString() : ''),
+              isLabelVisible: _pendingRequestsCount > 0,
+              child: Icon(Icons.people),
             ),
-            const SizedBox(height: 10),
-            FadeTransition(
-              opacity: _fadeAnimation,
-              child: Text(
-                'No More Struggles For\nPet Owners & Vets',
-                textAlign: TextAlign.center,
-                style: GoogleFonts.poppins(
-                  fontSize: 18,
-                  color: Colors.white70,
-                ),
-              ),
-            ),
-            const SizedBox(height: 30),
-            FadeTransition(
-              opacity: _fadeAnimation,
-              child: const CircularProgressIndicator(
-                color: Colors.white,
-              ),
-            ),
-          ],
-        ),
+            label: 'Friends',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.pets),
+            label: 'Services',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: 'Settings',
+          ),
+        ],
       ),
     );
   }
