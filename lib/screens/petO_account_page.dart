@@ -119,7 +119,7 @@ class PetOAccountPage extends StatelessWidget {
                       title: Text('Privacy Settings'),
                       trailing: Icon(Icons.arrow_forward_ios),
                       onTap: () {
-                        // TODO: Implement privacy settings navigation
+                        //  privacy settings navigation (ToDo)
                       },
                     ),
                   ],
