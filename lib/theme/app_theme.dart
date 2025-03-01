@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
 class AppTheme {
-  static const Color primaryColor = Color(0xFF4CAF50);
-  static const Color accentColor = Color(0xFFFFC0CB);   // Pastel pink
-  static const Color backgroundColor = Color(0xFFF5F5F5);
+  static const Color primaryColor = Color(0xFF1D4D4F);     // Deep teal
+  static const Color accentColor = Color(0xFFDEC092);      // Cream
+  static const Color backgroundColor = Color(0xFFF8F9FA);  // Light gray
   static const Color cardColor = Colors.white;
-  static const Color textColor = Color(0xFF333333);
-  static const Color secondaryTextColor = Color(0xFF666666);
-  static const Color subtitleColor = Color(0xFF666666);
+  static const Color textColor = Color(0xFF1D4D4F);        // Deep teal for text
+  static const Color secondaryTextColor = Color(0xFF6BABA9); // Lighter teal
+  static const Color subtitleColor = Color(0xFF6BABA9);    // Lighter teal
   
   static const double borderRadius = 16.0;
   static const double spacing = 16.0;
