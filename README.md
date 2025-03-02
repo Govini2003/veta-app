@@ -28,7 +28,8 @@ Veta.lk is a centralized digital platform designed to connect **pet owners** wit
 ✅ Create & manage profiles for pets  
 ✅ Book appointments with veterinarians & clinics  
 ✅ Search and compare veterinary services by cost & rating  
-✅ Access pet health records & prescriptions  
+✅ Access pet health records & prescriptions
+✅ Pet owners' collobaration
 ✅ Explore and purchase items from pet shops  
 ✅ Post ads for buying/selling pets in the marketplace
 
