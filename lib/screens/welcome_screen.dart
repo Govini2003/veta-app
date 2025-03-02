@@ -1,11 +1,10 @@
-
-import 'signin_screen.dart'; // Update to relative path
-import 'signup_screen.dart'; // Update to relative path
-import 'forgetpassword_screen.dart'; // Update to relative path
-import '../widgets/custom_scaffold.dart'; // Update to relative path
-import '../widgets/welcome_button.dart'; // Update to relative path
+import 'signin_screen.dart'; 
+import 'signup_screen.dart'; 
+import 'forgetpassword_screen.dart'; 
+import '../widgets/custom_scaffold.dart'; 
+import '../widgets/welcome_button.dart'; 
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart'; // For FontAwesomeIcons
+import 'package:font_awesome_flutter/font_awesome_flutter.dart'; 
 
 
 class WelcomeScreen extends StatelessWidget {
@@ -51,10 +50,10 @@ class WelcomeScreen extends StatelessWidget {
               alignment: Alignment.bottomRight,
               child: Row(
                 children: [
-                  const Expanded(
+                  Expanded(
                     child: WelcomeButton(
                       buttonText: 'Sign in',
-                      onTap: SignInScreen(),
+                      onTap: const SignInScreen(),
                       color: Colors.transparent,
                       textColor: Colors.white,
                     ),

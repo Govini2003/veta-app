@@ -9,9 +9,17 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.8
-  google_fonts: ^6.2.1
-  font_awesome_flutter: ^10.7.0
+  flutter_map: ^6.0.0
+  latlong2: ^0.9.0
+  http: ^1.1.0
+  cupertino_icons: ^1.0.2
+  google_fonts: ^6.1.0
+  font_awesome_flutter: ^10.6.0
+  sqflite: ^2.3.0
+  sqflite_common_ffi: ^2.3.0+2
+  sqflite_common_ffi_web: ^0.4.0
+  path: ^1.8.3
+  badges: ^3.1.2
   image_picker: ^1.1.2
   image_picker_for_web: ^3.0.6
   uuid: ^4.3.3
@@ -20,7 +28,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^5.0.0
+  flutter_lints: ^2.0.0
 
 flutter:
   uses-material-design: true
@@ -35,4 +43,6 @@ flutter:
           weight: 500
 
   assets:
-    - assets/images/background/bg1.png
+    - assets/images/background/
+    - assets/images/
+    - assets/icons/
