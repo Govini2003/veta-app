@@ -24,7 +24,8 @@ class _AddPetPageState extends State<AddPetPage> {
   String? gender;
   DateTime? dateOfBirth;
   int? age;
-  double? weight;  // Add weight field
+  double? weight;// Add weight field
+  double? height;// Add height field
   File? petPhoto;
   List<Map<String, dynamic>> vaccines = []; // Store vaccine details
 
