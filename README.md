@@ -44,6 +44,56 @@ Veta.lk is a centralized digital platform designed to connect **pet owners** wit
 ✅ Monitor reported content (ads, reviews)  
 ✅ Generate system reports and analytics
 
+#### 🏠 Dashboard for Pet Owners
+- See upcoming appointments
+- Track pet vaccination schedule
+- View latest pet health updates from vets
+
+#### 🏥 Expanded Vet & Clinic Services
+- Offer telemedicine consultations via video calls
+- Accept online payments for bookings
+- Display emergency vet availability
+
+#### 🛍️ Enhanced Pet Marketplace
+- Filter products by price, category, and availability
+- Secure payment gateway for pet product purchases
+- Chat feature for buyers & sellers
+
+#### 🛠️ Admin Panel Enhancements
+- Automated vet verification system
+- Generate monthly revenue reports
+- AI-powered review moderation
+
+### 🚀 Run the Flutter App
+
+#### Setup & Run
+```bash
+# Install dependencies
+flutter pub get
+
+# Run the app on an emulator or device
+flutter run
+
+# Build the APK for distribution
+flutter build apk
+
+# Run with debug logs
+flutter run --verbose
+```
+
+#### Hot Reload for Fast Development
+```bash
+# Apply changes without restarting the app
+r  # Press 'r' in the terminal while running
+```
+
+#### Clean & Rebuild
+```bash
+flutter clean
+flutter pub get
+flutter run
+
+
 ---
 
 ## 📂 Project Structure
