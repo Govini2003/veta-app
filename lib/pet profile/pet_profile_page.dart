@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:io';
-import 'vaccine_page.dart';
+import 'vaccine_page.dart'; // Import the VaccinePage
 import 'vaccine_details_page.dart'; // Import the VaccineDetailsPage
 import 'full_screen_image.dart'; // Import the FullScreenImage
 import 'dart:convert';
@@ -10,7 +10,7 @@ import 'package:image_picker/image_picker.dart';
 class PetProfilePage extends StatefulWidget {
   final String petId;  // Add petId as a required parameter
   final String petName;
-  final String species;
+  final String species; // Add species list 
   final String breed;
   final String? gender;
   final DateTime? dateOfBirth;
