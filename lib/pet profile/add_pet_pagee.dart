@@ -348,7 +348,7 @@ class _AddPetPageState extends State<AddPetPage> {
                   ),
                 ),
                 onPressed: _submitForm,
-                child: Text('Save'),
+                child: Text('Save details'),
               ),
             ],
           ),
