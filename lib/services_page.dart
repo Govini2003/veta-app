@@ -28,7 +28,7 @@ class _ServicesPageState extends State<ServicesPage> {
       ],
     },
     {
-      'type': 'Grooming',
+      'type': 'Pet Grooming',
       'icon': Icons.content_cut,
       'services': [
         'Bath & Brush',
