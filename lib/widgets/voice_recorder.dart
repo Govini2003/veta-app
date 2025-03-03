@@ -1,9 +1,13 @@
+/// A widget that handles voice recording functionality for the chat.
+/// Long press to start recording, release to stop.
+/// Uses the native web MediaRecorder API for better web compatibility.
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'dart:html' as html;
 import 'dart:js' as js;
 
 class VoiceRecorder extends StatefulWidget {
+  /// Callback function that receives the recorded audio URL and duration
   final Function(String, Duration) onStop;
 
   const VoiceRecorder({
@@ -16,6 +20,7 @@ class VoiceRecorder extends StatefulWidget {
 }
 
 class _VoiceRecorderState extends State<VoiceRecorder> {
+  // Recording state variables
   bool _isRecording = false;
   Timer? _timer;
   int _recordDuration = 0;
@@ -29,6 +34,7 @@ class _VoiceRecorderState extends State<VoiceRecorder> {
     _initRecorder();
   }
 
+  /// Initialize the recorder by requesting microphone permissions
   Future<void> _initRecorder() async {
     try {
       final stream = await html.window.navigator.mediaDevices?.getUserMedia({'audio': true});
@@ -47,12 +53,14 @@ class _VoiceRecorderState extends State<VoiceRecorder> {
     super.dispose();
   }
 
+  /// Handle incoming audio data from the MediaRecorder
   void _onDataAvailable(html.Event event) {
     if (event is html.BlobEvent && event.data != null) {
       _audioChunks.add(event.data!);
     }
   }
 
+  /// Start recording audio using MediaRecorder
   Future<void> _startRecording() async {
     try {
       if (!_hasPermission) {
@@ -78,6 +86,7 @@ class _VoiceRecorderState extends State<VoiceRecorder> {
         _recordDuration = 0;
       });
 
+      // Start the recording duration timer
       _timer?.cancel();
       _timer = Timer.periodic(const Duration(seconds: 1), (Timer t) {
         setState(() => _recordDuration++);
@@ -90,6 +99,7 @@ class _VoiceRecorderState extends State<VoiceRecorder> {
     }
   }
 
+  /// Stop recording and create a blob URL for the recorded audio
   Future<void> _stopRecording() async {
     _timer?.cancel();
     try {
@@ -113,6 +123,7 @@ class _VoiceRecorderState extends State<VoiceRecorder> {
     }
   }
 
+  /// Format the recording duration as MM:SS
   String _formatDuration(int duration) {
     final minutes = (duration ~/ 60).toString().padLeft(2, '0');
     final seconds = (duration % 60).toString().padLeft(2, '0');
