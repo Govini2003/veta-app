@@ -7,7 +7,7 @@ import 'theme/app_theme.dart';
 import 'edit_profile_page.dart';
 import 'friends_page.dart';
 import 'services_page.dart';
-import 'pet_details_page.dart';
+import 'pet_details_page.dart'; //import pet details
 
 class AddOwnerDetailsPage extends StatefulWidget {
   final PetOwner? initialOwner;
