@@ -11,7 +11,7 @@ class VaccineDetailsPage extends StatefulWidget {
   final String veterinarianName;
   final String? vetRegNo;
   final int vaccineIndex;
-  final String? description;
+  final String? description; // for other vaccines
 
   const VaccineDetailsPage({
     Key? key,
