@@ -7,6 +7,7 @@ import 'package:latlong2/latlong.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 import 'add_owner_details_page.dart';
 import 'friends_page.dart';
 import 'services_page.dart';
@@ -16,6 +17,7 @@ import 'services/pet_owner_service.dart';
 import 'theme/app_theme.dart';
 import 'screens/welcome_screen.dart';
 import 'screens/signin_screen.dart';
+import 'screens/chat_screen.dart';
 import 'themes/theme.dart';
 
 void main() async {
@@ -28,28 +30,31 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Veta.lk',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primaryColor: AppTheme.primaryColor,
-        scaffoldBackgroundColor: AppTheme.backgroundColor,
-        colorScheme: ColorScheme.fromSeed(seedColor: AppTheme.primaryColor),
-        useMaterial3: true,
-        appBarTheme: AppBarTheme(
-          backgroundColor: AppTheme.primaryColor,
-          elevation: 4,
-          systemOverlayStyle: SystemUiOverlayStyle.light,
-        ),
-        elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ElevatedButton.styleFrom(
+    return ChangeNotifierProvider(
+      create: (_) => ChatProvider(),
+      child: MaterialApp(
+        title: 'Veta.lk',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          primaryColor: AppTheme.primaryColor,
+          scaffoldBackgroundColor: AppTheme.backgroundColor,
+          colorScheme: ColorScheme.fromSeed(seedColor: AppTheme.primaryColor),
+          useMaterial3: true,
+          appBarTheme: AppBarTheme(
             backgroundColor: AppTheme.primaryColor,
-            foregroundColor: Colors.white,
-            elevation: 2,
+            elevation: 4,
+            systemOverlayStyle: SystemUiOverlayStyle.light,
+          ),
+          elevatedButtonTheme: ElevatedButtonThemeData(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: AppTheme.primaryColor,
+              foregroundColor: Colors.white,
+              elevation: 2,
+            ),
           ),
         ),
+        home: const SplashScreen(), // splash screen
       ),
-      home: const SplashScreen(), // splash screen
     );
   }
 }
@@ -129,6 +134,8 @@ class _HomePageState extends State<HomePage> {
             });
           },
         );
+      case 5:
+        return ChatScreen();
       default:
         return const SizedBox.shrink();
     }
@@ -197,6 +204,10 @@ class _HomePageState extends State<HomePage> {
           BottomNavigationBarItem(
             icon: Icon(Icons.settings),
             label: 'Settings',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.chat),
+            label: 'Chat',
           ),
         ],
       ),
