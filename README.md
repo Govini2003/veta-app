@@ -45,24 +45,24 @@ Veta.lk is a centralized digital platform designed to connect **pet owners** wit
 ✅ Generate system reports and analytics
 
 #### 🏠 Dashboard for Pet Owners
-- See upcoming appointments
-- Track pet vaccination schedule
-- View latest pet health updates from vets
+✅ See upcoming appointments
+✅ Track pet vaccination schedule
+✅ View latest pet health updates from vets
 
 #### 🏥 Expanded Vet & Clinic Services
-- Offer telemedicine consultations via video calls
-- Accept online payments for bookings
-- Display emergency vet availability
+✅ Offer telemedicine consultations via video calls
+✅ Accept online payments for bookings
+✅ Display emergency vet availability
 
 #### 🛍️ Enhanced Pet Marketplace
-- Filter products by price, category, and availability
-- Secure payment gateway for pet product purchases
-- Chat feature for buyers & sellers
+✅ Filter products by price, category, and availability
+✅ Secure payment gateway for pet product purchases
+✅ Chat feature for buyers & sellers
 
 #### 🛠️ Admin Panel Enhancements
-- Automated vet verification system
-- Generate monthly revenue reports
-- AI-powered review moderation
+✅ Automated vet verification system
+✅ Generate monthly revenue reports
+✅ AI-powered review moderation
 
 ### 🚀 Run the Flutter App
 
