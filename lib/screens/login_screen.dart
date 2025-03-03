@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
 import 'petO_home_page.dart'; // Import Pet Owner Home Page
 import 'vet_home_page.dart'; // Import Veterinarian Home Page
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter/material.dart';
 
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF64CCC5),
+      backgroundColor: Color(0xFF64CCC5), // Set the background color
       appBar: AppBar(
-        title: const Text('Login'),
+        title: Text('Login'),
         backgroundColor: Colors.white,
         elevation: 0,
       ),
@@ -20,7 +18,7 @@ class LoginScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
+            Text(
               'Veta.lk',
               style: TextStyle(
                 fontFamily: 'Poppins',
@@ -29,47 +27,47 @@ class LoginScreen extends StatelessWidget {
                 color: Colors.white,
               ),
             ),
-            const SizedBox(height: 20),
-            const Text(
+            SizedBox(height: 20),
+            Text(
               'Select Your Role',
               style: TextStyle(fontSize: 24, color: Colors.black),
             ),
-            const SizedBox(height: 20),
+            SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => VetHomePage()),
+                  MaterialPageRoute(builder: (context) => VetHomePage()), // Navigate to Vet Home Page
                 );
               },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFF357376),
-              ),
-              child: const Text(
+              child: Text(
                 'Veterinarian',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
                 ),
               ),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Color(0xFF357376), // Use backgroundColor instead of primary
+              ),
             ),
-            const SizedBox(height: 10),
+            SizedBox(height: 10),
             ElevatedButton(
               onPressed: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => PetOHomePage()),
+                  MaterialPageRoute(builder: (context) => PetOHomePage()), // Navigate to Pet Owner Home Page
                 );
               },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFF357376),
-              ),
-              child: const Text(
+              child: Text(
                 'Pet Owner',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
                 ),
+              ),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Color(0xFF357376), // Use backgroundColor instead of primary
               ),
             ),
           ],
