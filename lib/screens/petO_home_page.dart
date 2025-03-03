@@ -1,8 +1,9 @@
+// veta-app/lib/screens/petO_home_page.dart
 import 'package:flutter/material.dart';
 
-import 'package:font_awesome_flutter/font_awesome_flutter.dart'; // For FontAwesomeIcons
-import 'petO_account_page.dart'; // Import Pet Owner Account Page
-import 'petO_activities_page.dart'; // Import Pet Owner Activities Page
+import 'package:font_awesome_flutter/font_awesome_flutter.dart'; //  FontAwesomeIcons
+import 'petO_account_page.dart'; // Pet Owner Account Page
+import 'petO_activities_page.dart'; // Pet Owner Activities Page
 
 class PetOHomePage extends StatelessWidget {
   @override
