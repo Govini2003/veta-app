@@ -1,4 +1,4 @@
-//chat message 
+//chatbox message 
 class ChatMessage {
   final String text;
   final bool isMe;
