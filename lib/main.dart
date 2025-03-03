@@ -19,6 +19,7 @@ import 'screens/welcome_screen.dart';
 import 'screens/signin_screen.dart';
 import 'screens/chat_screen.dart';
 import 'themes/theme.dart';
+import 'screens/home_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
