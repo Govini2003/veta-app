@@ -21,7 +21,7 @@ class _MapScreenState extends State<MapScreen> {
   );
 
   double _zoom = 8.0;
-  LatLng? _selectedLocation;
+  LatLng? _selectedLocation; // Holds the searched location coordinates
   String _selectedLocationName = '';
   bool _isLoading = false;
   String? _errorMessage;
@@ -97,6 +97,7 @@ class _MapScreenState extends State<MapScreen> {
       ),
       body: Column(
         children: [
+          // Search Bar Section
           Container(
             padding: EdgeInsets.fromLTRB(16, 8, 16, 16),
             child: Column(
