@@ -56,7 +56,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           return null;
                         },
                         decoration: InputDecoration(
-                          label: const Text('Name'),
+                          label: const Text('Full Name'),
                           hintText: 'Enter Full Name',
                           hintStyle: const TextStyle(color: Colors.black26),
                           border: OutlineInputBorder(
