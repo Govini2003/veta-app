@@ -249,7 +249,7 @@ class PetOHomePage extends StatelessWidget {
             );
           } else if (index == 3) {
             Navigator.of(context).pushReplacement(
-              MaterialPageRoute(builder: (context) => AccountPage()),
+              MaterialPageRoute(builder: (context) => PetOAccountPage()),
             );
           }
         },

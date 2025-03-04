@@ -127,7 +127,7 @@ class _PetOActivitiesPageState extends State<PetOActivitiesPage> {
           } else if (index == 3) {
             Navigator.pushReplacement(
               context,
-              MaterialPageRoute(builder: (context) => const AccountPage()),
+              MaterialPageRoute(builder: (context) => PetOAccountPage()),
             );
           }
         },

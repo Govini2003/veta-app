@@ -1,22 +1,17 @@
 import 'dart:async';
-
-import 'package:auth_firebase/Entrance/welcome_screen.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'Entrance/firebase_options.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'Entrance/welcome_screen.dart';
+import 'LoginSignupAuth/signin_screen.dart';
+import 'themes/theme.dart';
+import 'InuPetProfile/add_pet_page.dart';
 
-Future<void> main() async {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
-  try {
-    await Firebase.initializeApp(
-      options: DefaultFirebaseOptions.currentPlatform,
-    );
-    runApp(const MyApp());
-  } catch (e) {
-    runApp(ErrorApp(error: e));
-  }
+  await Firebase.initializeApp();
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -26,11 +21,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: const SplashScreen(),
+      title: 'Veta.lk',
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
+      home: WelcomeScreen(),
     );
   }
 }
@@ -52,29 +46,28 @@ class _SplashScreenState extends State<SplashScreen>
   void initState() {
     super.initState();
 
-    // Animation Controller
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 6),
+      duration: const Duration(seconds: 2),
     );
 
-    // Fade-in Effect
     _fadeAnimation = Tween<double>(begin: 0, end: 1).animate(
       CurvedAnimation(parent: _controller, curve: Curves.easeIn),
     );
 
-    // Slide-up Effect
-    _slideAnimation =
-        Tween<Offset>(begin: const Offset(0, 0.5), end: Offset.zero).animate(
+    _slideAnimation = Tween<Offset>(
+      begin: const Offset(0, 0.5),
+      end: Offset.zero,
+    ).animate(
       CurvedAnimation(parent: _controller, curve: Curves.easeOut),
     );
 
     _controller.forward();
 
-    // Auto-Navigate after Splash Screen
-    Timer(const Duration(seconds: 6), () {
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (_) => const WelcomeScreen()),
+    Timer(const Duration(seconds: 3), () {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const SigninScreen()),
       );
     });
   }
@@ -157,21 +150,103 @@ class _SplashScreenState extends State<SplashScreen>
   }
 }
 
-class ErrorApp extends StatelessWidget {
-  final dynamic error;
-
-  const ErrorApp({super.key, required this.error});
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text(
-            'Firebase Initialization Error:\n$error',
-            textAlign: TextAlign.center,
-            style: const TextStyle(color: Colors.red),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Veta.lk'),
+        backgroundColor: const Color(0xFF1D4D4F),
+        foregroundColor: Colors.white,
+        elevation: 4,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text(
+              'Hello,\nUser\'s Name',
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: Color(0xFF1D4D4F),
+              ),
+            ),
+            const SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                _buildQuickAction(Icons.help, 'Help'),
+                _buildQuickAction(Icons.account_balance_wallet, 'Wallet'),
+                _buildQuickAction(Icons.message, 'Messages'),
+              ],
+            ),
+            const SizedBox(height: 20),
+            _buildActionButton(
+              context,
+              title: 'Add your Pet',
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => AddPetPage(
+                      onPetAdded: (pet) {
+                        // TODO: Handle the added pet
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Text('Pet added successfully!')),
+                        );
+                      },
+                    ),
+                  ),
+                );
+              },
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildQuickAction(IconData icon, String label) {
+    return Column(
+      children: [
+        CircleAvatar(
+          radius: 30,
+          backgroundColor: const Color(0xFFE9EFEC),
+          child: Icon(icon, color: const Color(0xFF357376), size: 30),
+        ),
+        const SizedBox(height: 8),
+        Text(label, style: const TextStyle(color: Color(0xFF1D4D4F))),
+      ],
+    );
+  }
+
+  Widget _buildActionButton(BuildContext context,
+      {required String title, required VoidCallback onPressed}) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          foregroundColor: Colors.white,
+          backgroundColor: const Color(0xFF357376),
+          padding: const EdgeInsets.symmetric(vertical: 16),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8.0),
           ),
+        ),
+        onPressed: onPressed,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              title,
+              style: const TextStyle(fontSize: 16),
+            ),
+            const Icon(Icons.arrow_forward, color: Colors.white),
+          ],
         ),
       ),
     );

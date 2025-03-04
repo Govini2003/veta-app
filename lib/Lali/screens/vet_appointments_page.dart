@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'vet_home_page.dart';
 import 'vet_dashboard.dart';
+import 'vet_profile.dart'; // Add this import at the top of the file
 import 'petO_account_page.dart';
 
 class VetAppointmentsPage extends StatefulWidget {
@@ -289,7 +290,7 @@ class _VetAppointmentsPageState extends State<VetAppointmentsPage>
             case 4:
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => AccountPage()),
+                MaterialPageRoute(builder: (context) => VetProfile()),
               );
               break;
           }

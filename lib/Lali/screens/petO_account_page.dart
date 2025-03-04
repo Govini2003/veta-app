@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:veta_1/features/profile/profile_navigation.dart';
+import '../../features/profile/profile_navigation.dart';
 
 class PetOAccountPage extends StatelessWidget {
   @override
@@ -15,6 +15,12 @@ class PetOAccountPage extends StatelessWidget {
           ),
         ),
         backgroundColor: Color(0xFF357376),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.help_outline),
+            onPressed: () => ProfileNavigation.showHelpAndSupport(context),
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(16.0),
@@ -44,7 +50,8 @@ class PetOAccountPage extends StatelessWidget {
                     ),
                     SizedBox(height: 8),
                     ElevatedButton(
-                      onPressed: () => ProfileNavigation.navigateToEditProfile(context),
+                      onPressed: () =>
+                          ProfileNavigation.navigateToEditProfile(context),
                       child: Text('Edit Profile'),
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Color(0xFF357376),
@@ -55,7 +62,7 @@ class PetOAccountPage extends StatelessWidget {
               ),
             ),
             SizedBox(height: 16),
-            
+
             // Pet Management Section
             Card(
               elevation: 4,
@@ -67,7 +74,7 @@ class PetOAccountPage extends StatelessWidget {
                     Text(
                       'Pet Management',
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 18,
                         fontWeight: FontWeight.bold,
                         fontFamily: 'Poppins',
                       ),
@@ -77,13 +84,54 @@ class PetOAccountPage extends StatelessWidget {
                       leading: Icon(Icons.pets, color: Color(0xFF357376)),
                       title: Text('My Pets'),
                       trailing: Icon(Icons.arrow_forward_ios),
-                      onTap: () => ProfileNavigation.navigateToPetDetails(context),
+                      onTap: () => ProfileNavigation.navigateToPetDetails(
+                        context,
+                        // Optional parameters can be added here if available
+                      ),
                     ),
                     ListTile(
                       leading: Icon(Icons.add_circle, color: Color(0xFF357376)),
                       title: Text('Add New Pet'),
                       trailing: Icon(Icons.arrow_forward_ios),
                       onTap: () => ProfileNavigation.navigateToAddPet(context),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.event, color: Color(0xFF357376)),
+                      title: Text('Pet Activities'),
+                      trailing: Icon(Icons.arrow_forward_ios),
+                      onTap: () =>
+                          ProfileNavigation.navigateToPetActivities(context),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(height: 16),
+
+            // Veterinary Services Section
+            Card(
+              elevation: 4,
+              child: Padding(
+                padding: EdgeInsets.all(16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Veterinary Services',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'Poppins',
+                      ),
+                    ),
+                    SizedBox(height: 16),
+                    ListTile(
+                      leading: Icon(Icons.medical_services,
+                          color: Color(0xFF357376)),
+                      title: Text('Vet Services'),
+                      trailing: Icon(Icons.arrow_forward_ios),
+                      onTap: () =>
+                          ProfileNavigation.navigateToVetServices(context),
                     ),
                   ],
                 ),
@@ -102,17 +150,26 @@ class PetOAccountPage extends StatelessWidget {
                     Text(
                       'Account Settings',
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 18,
                         fontWeight: FontWeight.bold,
                         fontFamily: 'Poppins',
                       ),
                     ),
                     SizedBox(height: 16),
                     ListTile(
-                      leading: Icon(Icons.person_outline, color: Color(0xFF357376)),
+                      leading: Icon(Icons.settings, color: Color(0xFF357376)),
+                      title: Text('Account Settings'),
+                      trailing: Icon(Icons.arrow_forward_ios),
+                      onTap: () =>
+                          ProfileNavigation.showAccountSettings(context),
+                    ),
+                    ListTile(
+                      leading:
+                          Icon(Icons.person_outline, color: Color(0xFF357376)),
                       title: Text('Owner Details'),
                       trailing: Icon(Icons.arrow_forward_ios),
-                      onTap: () => ProfileNavigation.navigateToAddOwnerDetails(context),
+                      onTap: () =>
+                          ProfileNavigation.navigateToAddOwnerDetails(context),
                     ),
                     ListTile(
                       leading: Icon(Icons.security, color: Color(0xFF357376)),

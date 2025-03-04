@@ -11,14 +11,11 @@ class WelcomeScreen extends StatelessWidget {
     return Scaffold(
       body: Container(
         width: double.infinity,
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              Colors.blue,
-              Colors.lightBlueAccent,
-            ],
+        height: double.infinity,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/bg1.png'),
+            fit: BoxFit.cover,
           ),
         ),
         child: Column(
@@ -30,6 +27,13 @@ class WelcomeScreen extends StatelessWidget {
                 color: Colors.white,
                 fontSize: 48,
                 fontWeight: FontWeight.bold,
+                shadows: [
+                  Shadow(
+                    blurRadius: 10.0,
+                    color: Colors.black,
+                    offset: Offset(5.0, 5.0),
+                  ),
+                ],
               ),
             ),
             const SizedBox(height: 50),

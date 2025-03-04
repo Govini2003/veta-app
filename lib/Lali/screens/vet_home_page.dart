@@ -126,11 +126,11 @@ class VetHomePage extends StatelessWidget {
               // Navigate to Payments
               break;
             case 4:
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => AccountPage()), // Navigate to Account Page
-              );
-              break;
+               Navigator.pushReplacement(
+                 context,
+                 MaterialPageRoute(builder: (context) => VetProfile()), // Navigate to Vet Profile
+               );
+               break;
           }
         },
       ),

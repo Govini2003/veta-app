@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:auth_firebase/Entrance/role_selection_screen.dart';
+import 'package:auth_firebase/Lali/screens/petO_home_page.dart';
 
 class PetOwnerRegistrationScreen extends StatefulWidget {
   const PetOwnerRegistrationScreen({super.key});
@@ -154,13 +155,15 @@ class _PetOwnerRegistrationScreenState
   // Form Submission Method
   void _submitForm() {
     if (_formKey.currentState!.validate()) {
-      // TODO: Implement form submission logic
-      // This could involve saving data to Firestore, local storage, etc.
+      // TODO: Implement actual form submission logic (saving data to Firestore, etc.)
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Registration submitted successfully!')),
       );
 
-      // You might want to navigate to another screen or perform additional actions
+      // Navigate to PetOHomePage after successful registration
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (_) => PetOHomePage()),
+      );
     }
   }
 

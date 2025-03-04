@@ -6,9 +6,11 @@ import 'full_screen_image.dart'; // Import the FullScreenImage
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:image_picker/image_picker.dart';
+import 'add_pet_page.dart'; // Import the AddPetPage
+import 'add_pet_page.dart'; // Import the AddPetPage
 
 class PetProfilePage extends StatefulWidget {
-  final String petId;  // Add petId as a required parameter
+  final String petId; // Add petId as a required parameter
   final String petName;
   final String species;
   final String breed;
@@ -16,13 +18,14 @@ class PetProfilePage extends StatefulWidget {
   final DateTime? dateOfBirth;
   final int? age;
   final double? weight;
-  final File? petPhoto;  // Change from final to mutable
-  final List<Map<String, dynamic>>? initialVaccines;  // Optional initial vaccines
+  final File? petPhoto; // Change from final to mutable
+  final List<Map<String, dynamic>>?
+      initialVaccines; // Optional initial vaccines
   final List<Map<String, dynamic>> vaccines;
 
   const PetProfilePage({
     Key? key,
-    required this.petId,  // Mark as required
+    required this.petId, // Mark as required
     required this.petName,
     required this.species,
     required this.breed,
@@ -48,9 +51,10 @@ class _PetProfilePageState extends State<PetProfilePage> {
   void initState() {
     super.initState();
     // Filter vaccines specific to this pet using petId
-    _vaccines = widget.initialVaccines?.where((vaccine) => 
-      vaccine['petId'] == widget.petId
-    ).toList() ?? widget.vaccines;
+    _vaccines = widget.initialVaccines
+            ?.where((vaccine) => vaccine['petId'] == widget.petId)
+            .toList() ??
+        widget.vaccines;
     _currentPetPhoto = widget.petPhoto;
     _petData = {
       'petName': widget.petName,
@@ -67,7 +71,7 @@ class _PetProfilePageState extends State<PetProfilePage> {
 
   Future<void> _loadData() async {
     final prefs = await SharedPreferences.getInstance();
-    
+
     // Try to load saved photo path
     final savedPhotoPath = prefs.getString('${widget.petId}_photo');
     if (savedPhotoPath != null && File(savedPhotoPath).existsSync()) {
@@ -77,11 +81,12 @@ class _PetProfilePageState extends State<PetProfilePage> {
     }
 
     final savedVaccinesJson = prefs.getString('${widget.petId}_vaccines');
-    
+
     if (savedVaccinesJson != null) {
       final List<dynamic> savedVaccines = json.decode(savedVaccinesJson);
       setState(() {
-        _vaccines = savedVaccines.map((v) => Map<String, dynamic>.from(v)).toList();
+        _vaccines =
+            savedVaccines.map((v) => Map<String, dynamic>.from(v)).toList();
         _petData['vaccines'] = _vaccines;
       });
     }
@@ -118,7 +123,8 @@ class _PetProfilePageState extends State<PetProfilePage> {
     }
   }
 
-  void _navigateToVaccineDetails(BuildContext context, Map<String, dynamic> vaccine, int index) async {
+  void _navigateToVaccineDetails(
+      BuildContext context, Map<String, dynamic> vaccine, int index) async {
     final result = await Navigator.push(
       context,
       MaterialPageRoute(
@@ -161,6 +167,18 @@ class _PetProfilePageState extends State<PetProfilePage> {
     );
   }
 
+  void _navigateToAddPet() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const AddPetPage(),
+      ),
+    ).then((_) {
+      // Refresh the current page or perform any necessary updates
+      setState(() {});
+    });
+  }
+
   Future<void> _updateProfilePhoto() async {
     final ImagePicker picker = ImagePicker();
     final XFile? image = await picker.pickImage(source: ImageSource.gallery);
@@ -170,7 +188,7 @@ class _PetProfilePageState extends State<PetProfilePage> {
       setState(() {
         _currentPetPhoto = newPhotoFile;
       });
-      
+
       await _saveProfilePhoto(newPhotoFile);
     }
   }
@@ -190,11 +208,12 @@ class _PetProfilePageState extends State<PetProfilePage> {
 
   String _calculateAge() {
     if (widget.dateOfBirth == null) return 'Age unknown';
-    
+
     final now = DateTime.now();
     final difference = now.difference(widget.dateOfBirth!);
-    final months = (difference.inDays / 30.44).floor(); // Average days in a month
-    
+    final months =
+        (difference.inDays / 30.44).floor(); // Average days in a month
+
     if (months < 1) {
       final days = difference.inDays;
       return '$days Day${days != 1 ? 's' : ''}';
@@ -212,11 +231,11 @@ class _PetProfilePageState extends State<PetProfilePage> {
 
   String _formatDate(DateTime? date) {
     if (date == null) return 'Not specified';
-    
+
     // Add leading zero if day or month is single digit
     String day = date.day.toString().padLeft(2, '0');
     String month = date.month.toString().padLeft(2, '0');
-    
+
     return '$day/$month/${date.year}';
   }
 
@@ -224,7 +243,8 @@ class _PetProfilePageState extends State<PetProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Veta.lk', style: TextStyle(fontWeight: FontWeight.bold, letterSpacing: 1.2)),
+        title: Text('Veta.lk',
+            style: TextStyle(fontWeight: FontWeight.bold, letterSpacing: 1.2)),
         backgroundColor: const Color(0xFF1D4D4F),
         foregroundColor: Colors.white,
         elevation: 4,
@@ -253,7 +273,8 @@ class _PetProfilePageState extends State<PetProfilePage> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => FullScreenImage(imageFile: _currentPetPhoto!),
+                          builder: (context) =>
+                              FullScreenImage(imageFile: _currentPetPhoto!),
                         ),
                       );
                     }
@@ -328,28 +349,56 @@ class _PetProfilePageState extends State<PetProfilePage> {
           ),
         ),
       ),
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.all(28),
-        child: ElevatedButton.icon(
-          onPressed: _navigateToBookAppointment,
-          icon: Icon(Icons.calendar_today, color: Colors.white),
-          label: Text(
-            'Book Appointment',
-            style: TextStyle(
-              fontSize:20,
-              fontWeight: FontWeight.w600,
-              color: Colors.white,
+      bottomNavigationBar: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(28),
+            child: ElevatedButton.icon(
+              onPressed: _navigateToBookAppointment,
+              icon: Icon(Icons.calendar_today, color: Colors.white),
+              label: Text(
+                'Book Appointment',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.white,
+                ),
+              ),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Color(0xFF357376),
+                padding: EdgeInsets.symmetric(vertical: 16, horizontal: 30),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                elevation: 3,
+              ),
             ),
           ),
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Color(0xFF357376),
-            padding: EdgeInsets.symmetric(vertical: 16, horizontal: 30),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 28, left: 28, right: 28),
+            child: ElevatedButton.icon(
+              onPressed: _navigateToAddPet,
+              icon: Icon(Icons.add, color: Colors.white),
+              label: Text(
+                'Add More Pets',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.white,
+                ),
+              ),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Color(0xFF6BA8A9),
+                padding: EdgeInsets.symmetric(vertical: 16, horizontal: 30),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                elevation: 3,
+              ),
             ),
-            elevation: 3,
           ),
-        ),
+        ],
       ),
     );
   }
@@ -386,8 +435,8 @@ class _PetProfilePageState extends State<PetProfilePage> {
                   ),
                   const SizedBox(width: 8),
                   Icon(
-                    widget.gender?.toLowerCase() == 'male' 
-                        ? Icons.male 
+                    widget.gender?.toLowerCase() == 'male'
+                        ? Icons.male
                         : Icons.female,
                     color: Color(0xFF6BA8A9),
                     size: 28,
@@ -619,7 +668,8 @@ class _PetProfilePageState extends State<PetProfilePage> {
                                   color: Colors.grey[700],
                                 ),
                               ),
-                              if (vaccine['renewalDate'] != null && vaccine['renewalDate'].isNotEmpty)
+                              if (vaccine['renewalDate'] != null &&
+                                  vaccine['renewalDate'].isNotEmpty)
                                 Text(
                                   'Renewal Date: ${vaccine['renewalDate']}',
                                   style: TextStyle(
@@ -685,7 +735,8 @@ class _PetProfilePageState extends State<PetProfilePage> {
   }
 
   Widget _buildVaccineCard(Map<String, dynamic> vaccine, int index) {
-    String subtitleText = 'Vaccination Date: ${vaccine['vaccinationDate'] ?? 'Unknown'}';
+    String subtitleText =
+        'Vaccination Date: ${vaccine['vaccinationDate'] ?? 'Unknown'}';
     if (vaccine['renewalDate'] != null && vaccine['renewalDate'].isNotEmpty) {
       subtitleText += '\nRenewal Date: ${vaccine['renewalDate']}';
     }
