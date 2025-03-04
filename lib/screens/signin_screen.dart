@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'forgetpassword_screen.dart';
-import 'signup_screen.dart';
+import 'signup_screen.dart'; // Add signup screen
 import 'package:font_awesome_flutter/font_awesome_flutter.dart'; // Add this import
 
 class SignInScreen extends StatefulWidget {
