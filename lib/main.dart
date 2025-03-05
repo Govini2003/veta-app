@@ -10,7 +10,21 @@ import 'InuPetProfile/add_pet_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  try {
+    await Firebase.initializeApp(
+      options: FirebaseOptions(
+        apiKey: "AIzaSyBgdx-5nRYAiEjiIoKBn661UVamYgnhQwg",
+        authDomain: "veta-login.firebaseapp.com",
+        projectId: "veta-login",
+        storageBucket: "veta-login.firebasestorage.app",
+        messagingSenderId: "596091829422",
+        appId: "1:596091829422:web:87a3075a440f449fbb013f",
+        measurementId: "G-NWVETG4P5J",
+      ),
+    );
+  } catch (e) {
+    print("Firebase initialization failed: $e");
+  }
   runApp(const MyApp());
 }
 
