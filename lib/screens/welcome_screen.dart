@@ -1,3 +1,6 @@
+// veta-app/lib/screens/welcome_screen.dart
+
+
 // final welcome page
 import 'signin_screen.dart'; 
 import 'signup_screen.dart'; 
