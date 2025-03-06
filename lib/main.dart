@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
       title: 'Veta.lk',
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
-      home: WelcomeScreen(),
+      home: const SplashScreen(),
     );
   }
 }
@@ -81,7 +81,7 @@ class _SplashScreenState extends State<SplashScreen>
     Timer(const Duration(seconds: 3), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const SigninScreen()),
+        MaterialPageRoute(builder: (context) => const WelcomeScreen()),
       );
     });
   }
