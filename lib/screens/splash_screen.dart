@@ -1,3 +1,4 @@
+//veta-app/lib/screens/splash_screen.dart
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'welcome_screen.dart';
