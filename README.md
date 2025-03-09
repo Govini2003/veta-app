@@ -92,9 +92,7 @@ r  # Press 'r' in the terminal while running
 flutter clean
 flutter pub get
 flutter run
-
-
----
+```
 
 ## 📂 Project Structure
 
