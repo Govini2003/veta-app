@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 class AppTheme {
   static const Color primaryColor = Color(0xFF1D4D4F);     // Deep teal
   static const Color accentColor = Color(0xFFDEC092);      // Cream
@@ -12,6 +11,7 @@ class AppTheme {
   static const double borderRadius = 16.0;
   static const double spacing = 16.0;
   static const double avatarSize = 60.0;
+
   
   static BoxDecoration neumorphicDecoration({
     double radius = borderRadius,
