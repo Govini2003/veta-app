@@ -42,7 +42,7 @@ class VetCalendarApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      home: const SplashScreen(), // Set the initial screen to SplashScreen
+      home: const SplashScreen(), // Set the screen to SplashScreen
     );
   }
 }
