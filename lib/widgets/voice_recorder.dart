@@ -1,5 +1,5 @@
 /// A widget that handles voice recording functionality for the chat.
-/// Long press to start recording, release to stop.
+/// Long press to start recording release to stop.
 /// Uses the native web MediaRecorder API for better web compatibility.
 import 'package:flutter/material.dart';
 import 'dart:async';
