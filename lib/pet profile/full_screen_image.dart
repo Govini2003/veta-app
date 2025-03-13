@@ -1,3 +1,5 @@
+// veta-app/lib/pet profile/full_screen_image.dart
+
 import 'package:flutter/material.dart';
 import 'dart:io';
 
