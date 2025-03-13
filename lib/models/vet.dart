@@ -1,3 +1,5 @@
+// veta-app/lib/models/vet.dart
+
 class Vet {
   final String name;
   final String specialization;
