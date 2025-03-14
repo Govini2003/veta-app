@@ -5,6 +5,7 @@ import 'services/pet_owner_service.dart';
 import 'widgets/friend_request_notification.dart';
 import 'theme/app_theme.dart';
 
+
 class FriendsPage extends StatefulWidget {
   @override
   _FriendsPageState createState() => _FriendsPageState();
