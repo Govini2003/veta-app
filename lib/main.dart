@@ -43,7 +43,8 @@ class VetCalendarApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      home: const SplashScreen(), // Set the screen to SplashScreen
+      home: const SplashScreen(), // Set The Opening Screen TO Splash Screen
+      
     );
   }
 }
@@ -640,7 +641,7 @@ class _MapScreenState extends State<MapScreen> {
                         },
                       ),
                     ],
-                  ),
+                  ), // .
                 ),
               ),
             ],
