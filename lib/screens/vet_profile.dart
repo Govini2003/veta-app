@@ -53,7 +53,7 @@ class VetProfile extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: 20), // Add some space above the button
+          SizedBox(height: 20), 
           Center(
             child: ElevatedButton(
               onPressed: () {
@@ -61,7 +61,7 @@ class VetProfile extends StatelessWidget {
               },
               child: Text('Edit Profile', style: TextStyle(fontFamily: 'Poppins', color: Colors.white)), // Updated font color to white
               style: ElevatedButton.styleFrom(
-                backgroundColor: Color(0xFF357376), // Set button color
+                backgroundColor: Color(0xFF357376), 
               ),
             ),
           ),
@@ -72,11 +72,11 @@ class VetProfile extends StatelessWidget {
 
   Widget _buildExpandableSection(String title, String content) {
     return ExpansionTile(
-      title: Text(title, style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, fontFamily: 'Poppins')), // Updated font
+      title: Text(title, style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, fontFamily: 'Poppins')), // font
       children: <Widget>[
         Padding(
           padding: const EdgeInsets.all(16.0),
-          child: Text(content, style: TextStyle(fontFamily: 'Questrial')), // Updated font
+          child: Text(content, style: TextStyle(fontFamily: 'Questrial')), //  font
         ),
       ],
     );
