@@ -80,6 +80,7 @@ class PetOwner {
     };
   }
 
+  
   // Create from Map
   factory PetOwner.fromMap(Map<String, dynamic> map) {
     return PetOwner(
@@ -106,7 +107,7 @@ class PetOwner {
     );
   }
 
-  // Add copyWith method
+  //Add copyWith method
   PetOwner copyWith({
     String? name,
     String? email,
@@ -143,7 +144,7 @@ class PetOwner {
     );
   }
 
-  // Sample data generator
+  //Sample data generator
   static List<PetOwner> getSampleOwners() {
     return [
       PetOwner(
@@ -317,6 +318,7 @@ class Pet {
   final List<VetVisit> vetVisits;
   final FeedingSchedule feedingSchedule;
 
+  
   Pet({
     required this.id,
     required this.name,
@@ -486,6 +488,7 @@ class Meal {
       );
 }
 
+
 class ServiceBooking {
   final String id;
   final String serviceType;
@@ -495,6 +498,7 @@ class ServiceBooking {
   final String status;
   final String notes;
 
+  
   ServiceBooking({
     required this.id,
     required this.serviceType,
