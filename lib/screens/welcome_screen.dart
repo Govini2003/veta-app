@@ -1,7 +1,5 @@
 // veta-app/lib/screens/welcome_screen.dart
-
-
-// final welcome page
+// Final Welcome Page....
 import 'signin_screen.dart'; 
 import 'signup_screen.dart'; 
 import 'forgetpassword_screen.dart'; 
