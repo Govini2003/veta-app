@@ -49,7 +49,7 @@ flutter:
         - asset: assets/fonts/Questrial-Regular.ttf
           weight: 500
 
-  assets:
+   assets:
     - assets/
     - assets/icons/
     - assets/images/
