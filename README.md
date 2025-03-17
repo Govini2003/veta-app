@@ -4,6 +4,7 @@ Veta.lk is a centralized digital platform designed to connect **pet owners** wit
 
 ---
 
+
 ## 📱 Technologies Used
 
 ### Frontend (Mobile App)
