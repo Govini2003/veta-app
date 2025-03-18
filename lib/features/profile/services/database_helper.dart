@@ -123,7 +123,7 @@ class DatabaseHelper {
         )
       ''');
 
-      // Add new columns to pet_owners table
+      // Add new columns to pet_owners tables
       await db.execute('ALTER TABLE pet_owners ADD COLUMN preferredContactMethod TEXT');
       await db.execute('ALTER TABLE pet_owners ADD COLUMN lastUpdated TEXT');
     }
