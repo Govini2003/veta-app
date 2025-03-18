@@ -132,7 +132,8 @@ class _AddPetPageState extends State<AddPetPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Pet Photos Section
+
+              // *Pet Photos Section
               Text(
                 'Pet Photos',
                 style: TextStyle(
