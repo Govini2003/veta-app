@@ -23,7 +23,7 @@ class _SplashScreenState extends State<SplashScreen>
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 2),
+      duration: const Duration(seconds: 3),
     );
     _fadeAnimation = Tween<double>(begin: 0, end: 1).animate(
       CurvedAnimation(parent: _controller, curve: Curves.easeIn),
@@ -32,7 +32,7 @@ class _SplashScreenState extends State<SplashScreen>
       CurvedAnimation(parent: _controller, curve: Curves.easeOut),
     );
     _controller.forward();
-    Timer(const Duration(seconds: 3), () {
+    Timer(const Duration(seconds: 4), () {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const WelcomeScreen()),
