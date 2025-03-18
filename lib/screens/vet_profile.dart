@@ -29,11 +29,11 @@ class VetProfile extends StatelessWidget {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text('Dr. FirstName LastName', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, fontFamily: 'Poppins')), // Updated font
+                          Text('Dr. FirstName LastName', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, fontFamily: 'Poppins')), 
                           SizedBox(height: 4),
-                          Text('SLVC Registration: 123456 - 2023', style: TextStyle(fontSize: 14, fontFamily: 'Questrial')), // Updated font
+                          Text('SLVC Registration: 123456 - 2023', style: TextStyle(fontSize: 14, fontFamily: 'Questrial')), 
                           SizedBox(height: 4),
-                          Text('Verified', style: TextStyle(color: Colors.green)), // Or "Pending Verification"
+                          Text('Verified', style: TextStyle(color: Colors.green)), 
                         ],
                       ),
                       Spacer(),
@@ -41,7 +41,7 @@ class VetProfile extends StatelessWidget {
                   ),
                   SizedBox(height: 20),
 
-                  // Profile Sections (Expandable/Collapsible)
+                  // Profile Sections
                   _buildExpandableSection('Personal Details', 'Details about personal information...'),
                   _buildExpandableSection('Contact Information', 'Details about contact information...'),
                   _buildExpandableSection('Professional Credentials', 'Details about credentials...'),
