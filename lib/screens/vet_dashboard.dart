@@ -1,5 +1,5 @@
 // veta-app/lib/screens/vet_dashboard.dart
-// Navigating Through Insights in Bottom Navigation Bar
+
 
 import 'package:flutter/material.dart';
 import 'petO_home_page.dart'; // Pet Owner Home Page
