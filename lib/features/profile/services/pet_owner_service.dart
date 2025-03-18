@@ -14,7 +14,7 @@ class PetOwnerService extends ChangeNotifier {
   bool _initialized = false;
   PetOwner? _currentOwner;
 
-  // Global key for accessing scaffold messenger
+  // GLOBAL KEY for accessing scaffold messenger
   static final GlobalKey<ScaffoldMessengerState> messengerKey = GlobalKey<ScaffoldMessengerState>();
 
   // Stream controller for friend request notifications
