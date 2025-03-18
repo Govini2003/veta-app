@@ -418,7 +418,7 @@ class _AddOwnerDetailsPageState extends State<AddOwnerDetailsPage> {
                       builder: (context) => PetDetailsPage(
                         pet: widget.initialOwner!.pets[0],
                         onPetUpdated: (updatedPet) {
-                          // TODO: Update pet in owner's pets list
+                          // *TODO: Update pet in owner's pets list
                         },
                       ),
                     ),
