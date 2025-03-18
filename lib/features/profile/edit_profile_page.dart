@@ -218,7 +218,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                 keyboardType: TextInputType.emailAddress,
                 validator: (value) {
                   if (value?.isEmpty ?? true) return 'Please enter your email';
-                  if (!value!.contains('@')) return 'Please enter a valid email';
+                  if (!value!.contains('@')) return 'Please Enter A Valid email';
                   return null;
                 },
               ),
