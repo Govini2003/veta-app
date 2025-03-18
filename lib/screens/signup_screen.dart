@@ -1,7 +1,7 @@
 // veta-app/lib/screens/signup_screen.dart
 
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart'; // Ensure this import is present
+import 'package:font_awesome_flutter/font_awesome_flutter.dart'; 
 import 'signin_screen.dart';
 
 class SignUpScreen extends StatefulWidget {
