@@ -227,14 +227,14 @@ class _EditProfilePageState extends State<EditProfilePage> {
                 controller: _phoneController,
                 keyboardType: TextInputType.phone,
                 validator: (value) =>
-                    value?.isEmpty ?? true ? 'Please enter your phone number' : null,
+                    value?.isEmpty ?? true ? 'Please Enter Your Phone Number' : null,
               ),
               _buildTextField(
                 label: 'Bio',
                 controller: _bioController,
                 maxLines: 3,
                 validator: (value) =>
-                    value?.isEmpty ?? true ? 'Please enter your bio' : null,
+                    value?.isEmpty ?? true ? 'Please Enter Your Bio' : null,
               ),
             ],
           ),
