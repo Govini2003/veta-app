@@ -7,23 +7,23 @@ import 'petO_account_page.dart'; //  Pet Owner Account Page
 import 'vet_dashboard.dart'; //  Vet Dashboard
 import 'vet_profile.dart'; // Vet Profile
 
-import 'package:font_awesome_flutter/font_awesome_flutter.dart'; // For FontAwesomeIcons
+import 'package:font_awesome_flutter/font_awesome_flutter.dart'; 
 
 class VetHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF6BA8A9), // Set the background color to #64CCC5
+      backgroundColor: Color(0xFF6BA8A9), 
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0, // Removes shadow
         title: Text(
           'Welcome, Dr. Smith',
-          style: TextStyle(color: Colors.black), // Match title color
+          style: TextStyle(color: Colors.black), /
         ),
         actions: [
           IconButton(
-            icon: Icon(Icons.notifications, color: Colors.black), // Match icon color
+            icon: Icon(Icons.notifications, color: Colors.black), 
             onPressed: () {
               // Handle notifications
             },
