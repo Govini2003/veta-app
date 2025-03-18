@@ -45,15 +45,15 @@ class _PetDetailsPageState extends State<PetDetailsPage> {
   }
 
   void _addVaccination() {
-    // TODO: Implement vaccination addition
+    // *TODO: Implement vaccination addition
   }
 
   void _addVetVisit() {
-    // TODO: Implement vet visit addition
+    // *TODO: Implement vet visit addition
   }
 
   void _updateFeedingSchedule() {
-    // TODO: Implement feeding schedule update
+    // *TODO: Implement feeding schedule update
   }
 
   @override
@@ -73,7 +73,7 @@ class _PetDetailsPageState extends State<PetDetailsPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Pet Photos
+            // Pet Photos...
             Container(
               height: 200,
               child: ListView.builder(
