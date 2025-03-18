@@ -2,7 +2,7 @@
 // to show vaccine details
 import 'package:flutter/material.dart';
 import 'dart:io';
-import 'vaccine_page.dart'; // import vaccine page
+import 'vaccine_page.dart';
 import 'dart:developer' as developer;
 
 class VaccineDetailsPage extends StatefulWidget {
