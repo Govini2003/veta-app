@@ -34,7 +34,7 @@ class WelcomeScreen extends StatelessWidget {
                         ),
                       ),
                       TextSpan(
-                        text: '\n No more struggle for Pet Owners and Vets',
+                        text: '\n No More Struggle For Pet Owners and Vets',
                         style: TextStyle(
                           fontSize: 23,
                           fontWeight: FontWeight.w500,
@@ -54,7 +54,7 @@ class WelcomeScreen extends StatelessWidget {
                 children: [
                   Expanded(
                     child: WelcomeButton(
-                      buttonText: 'Sign in',
+                      buttonText: 'Sign In',
                       onTap: const SignInScreen(),
                       color: Colors.transparent,
                       textColor: Colors.white,
@@ -62,7 +62,7 @@ class WelcomeScreen extends StatelessWidget {
                   ),
                   Expanded(
                     child: WelcomeButton(
-                      buttonText: 'Sign up',
+                      buttonText: 'Sign Up',
                       onTap: const SignUpScreen(),
                       color: Colors.white,
                       textColor: Theme.of(context).colorScheme.primary,
