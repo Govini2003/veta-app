@@ -9,7 +9,7 @@ class VaccinePage extends StatefulWidget {
   final String? initialVaccinationDate;
   final String? initialRenewalDate;
   final String? initialVeterinarianName;
-  final String? initialVetRegNo; //import pet register number
+  final String? initialVetRegNo; // pet register number page
   final String? initialDescription;
 
   const VaccinePage({
