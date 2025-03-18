@@ -13,9 +13,9 @@ class PetOwner {
   final String? gender;
   final DateTime? dateOfBirth;
   final DateTime createdAt;
-  final List<String> friendIds; // List of friend email IDs
-  final List<String> pendingFriendRequests; // List of pending friend request email IDs
-  final List<String> sentFriendRequests; // List of sent friend request email IDs
+  final List<String> friendIds; // List of friend email ID's
+  final List<String> pendingFriendRequests; // List of pending friend request email ID's
+  final List<String> sentFriendRequests; // List of sent friend request email ID's
   final String? securityCode;
   final List<Pet> pets;
   final List<ServiceBooking> serviceBookings;
