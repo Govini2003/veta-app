@@ -1,4 +1,4 @@
-// veta-app/lib/add_pet_page.dart
+//veta-app/lib/add_pet_page.dart
 import 'package:flutter/material.dart';
 import 'dart:io';
 import 'package:image_picker/image_picker.dart';
@@ -132,7 +132,7 @@ class _AddPetPageState extends State<AddPetPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Pet Photos Section
+              //Pet Photos Section
               Text(
                 'Pet Photos',
                 style: TextStyle(
