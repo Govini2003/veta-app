@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'vet_home_page.dart';
-import 'vet_dashboard.dart';
-import 'vet_profile.dart'; // Add this import at the top of the file
-import 'petO_account_page.dart';
+import 'vet_home_page.dart'; // Import Vet Home Page
+import 'vet_dashboard.dart'; // Import Vet Dashboard
+import 'vet_payment_page.dart'; // Import Vet Payment Page
+import 'vet_profile.dart'; // Import Vet Profile
+import 'vetside_settings_page.dart'; // Import Vet Settings Page
 
 class VetAppointmentsPage extends StatefulWidget {
   @override
   _VetAppointmentsPageState createState() => _VetAppointmentsPageState();
 }
 
-class _VetAppointmentsPageState extends State<VetAppointmentsPage>
-    with SingleTickerProviderStateMixin {
+class _VetAppointmentsPageState extends State<VetAppointmentsPage> with SingleTickerProviderStateMixin {
   late TabController _tabController;
   List<Appointment> _appointments = [];
   bool _isLoading = true;
@@ -33,7 +33,7 @@ class _VetAppointmentsPageState extends State<VetAppointmentsPage>
   Future<void> _fetchAppointments() async {
     // Simulate network delay
     await Future.delayed(Duration(seconds: 1));
-
+    
     // Mock data
     final mockAppointments = [
       Appointment(
@@ -119,16 +119,14 @@ class _VetAppointmentsPageState extends State<VetAppointmentsPage>
   // Update appointment status
   void _updateAppointmentStatus(String id, AppointmentStatus newStatus) {
     setState(() {
-      final index =
-          _appointments.indexWhere((appointment) => appointment.id == id);
+      final index = _appointments.indexWhere((appointment) => appointment.id == id);
       if (index != -1) {
         _appointments[index] = _appointments[index].copyWith(status: newStatus);
-
+        
         // Show a snackbar to confirm the action
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content:
-                Text('Appointment ${_getStatusText(newStatus).toLowerCase()}'),
+            content: Text('Appointment ${_getStatusText(newStatus).toLowerCase()}'),
             backgroundColor: _getStatusColor(newStatus),
             duration: Duration(seconds: 2),
           ),
@@ -170,21 +168,15 @@ class _VetAppointmentsPageState extends State<VetAppointmentsPage>
   List<Appointment> _getFilteredAppointments() {
     switch (_tabController.index) {
       case 0: // Upcoming
-        return _appointments
-            .where((appointment) =>
-                appointment.status == AppointmentStatus.pending ||
-                appointment.status == AppointmentStatus.confirmed)
-            .toList();
+        return _appointments.where((appointment) => 
+          appointment.status == AppointmentStatus.pending || 
+          appointment.status == AppointmentStatus.confirmed).toList();
       case 1: // Completed
-        return _appointments
-            .where((appointment) =>
-                appointment.status == AppointmentStatus.completed)
-            .toList();
+        return _appointments.where((appointment) => 
+          appointment.status == AppointmentStatus.completed).toList();
       case 2: // Cancelled
-        return _appointments
-            .where((appointment) =>
-                appointment.status == AppointmentStatus.cancelled)
-            .toList();
+        return _appointments.where((appointment) => 
+          appointment.status == AppointmentStatus.cancelled).toList();
       default:
         return _appointments;
     }
@@ -256,16 +248,13 @@ class _VetAppointmentsPageState extends State<VetAppointmentsPage>
         type: BottomNavigationBarType.fixed,
         selectedItemColor: const Color(0xFF357376),
         unselectedItemColor: Colors.grey,
-        currentIndex: 1, // Appointments tab
+        currentIndex: 1, // Set to 1 for Appointments tab
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.calendar_today), label: 'Appointments'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.business), label: 'Insights'),
+          BottomNavigationBarItem(icon: Icon(Icons.calendar_today), label: 'Appointments'),
+          BottomNavigationBarItem(icon: Icon(Icons.business), label: 'Insights'),
           BottomNavigationBarItem(icon: Icon(Icons.money), label: 'Payments'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.settings), label: 'Settings'),
+          BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Settings'),
         ],
         onTap: (index) {
           switch (index) {
@@ -276,7 +265,7 @@ class _VetAppointmentsPageState extends State<VetAppointmentsPage>
               );
               break;
             case 1:
-              // Already on Appointments
+              // Already on Appointments page
               break;
             case 2:
               Navigator.pushReplacement(
@@ -285,12 +274,15 @@ class _VetAppointmentsPageState extends State<VetAppointmentsPage>
               );
               break;
             case 3:
-              // Navigate to Payments
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => VetPaymentPage()),
+              );
               break;
             case 4:
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => VetProfile()),
+                MaterialPageRoute(builder: (context) => VetSettingsPage()),
               );
               break;
           }
@@ -308,7 +300,7 @@ class _VetAppointmentsPageState extends State<VetAppointmentsPage>
 
   Widget _buildAppointmentsList() {
     final filteredAppointments = _getFilteredAppointments();
-
+    
     if (filteredAppointments.isEmpty) {
       return Center(
         child: Column(
@@ -340,12 +332,9 @@ class _VetAppointmentsPageState extends State<VetAppointmentsPage>
         final appointment = filteredAppointments[index];
         return AppointmentCard(
           appointment: appointment,
-          onAccept: () => _updateAppointmentStatus(
-              appointment.id, AppointmentStatus.confirmed),
-          onReject: () => _updateAppointmentStatus(
-              appointment.id, AppointmentStatus.cancelled),
-          onComplete: () => _updateAppointmentStatus(
-              appointment.id, AppointmentStatus.completed),
+          onAccept: () => _updateAppointmentStatus(appointment.id, AppointmentStatus.confirmed),
+          onReject: () => _updateAppointmentStatus(appointment.id, AppointmentStatus.cancelled),
+          onComplete: () => _updateAppointmentStatus(appointment.id, AppointmentStatus.completed),
         );
       },
     );
@@ -580,8 +569,7 @@ class AppointmentCard extends StatelessWidget {
         ],
       );
     } else {
-      return SizedBox
-          .shrink(); // No actions for completed or cancelled appointments
+      return SizedBox.shrink(); // No actions for completed or cancelled appointments
     }
   }
 

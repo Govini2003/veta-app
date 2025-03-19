@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:auth_firebase/Entrance/role_selection_screen.dart';
 import 'package:auth_firebase/Lali/screens/petO_home_page.dart';
 
@@ -153,16 +154,22 @@ class _PetOwnerRegistrationScreenState
   }
 
   // Form Submission Method
-  void _submitForm() {
+  void _submitForm() async {
     if (_formKey.currentState!.validate()) {
-      // TODO: Implement actual form submission logic (saving data to Firestore, etc.)
+      // Save user data to Firestore (implement this part)
+
+      // Save user role to SharedPreferences
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setString('user_role', 'pet_owner');
+
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Registration submitted successfully!')),
       );
 
       // Navigate to PetOHomePage after successful registration
-      Navigator.of(context).pushReplacement(
+      Navigator.of(context).pushAndRemoveUntil(
         MaterialPageRoute(builder: (_) => PetOHomePage()),
+        (route) => false, // This removes all previous routes
       );
     }
   }

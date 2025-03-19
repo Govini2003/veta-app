@@ -1,16 +1,81 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'services/api_config.dart';
+import 'services/api_service.dart';
 import 'Entrance/welcome_screen.dart';
-import 'LoginSignupAuth/signin_screen.dart';
+import 'Entrance/wrapper.dart';
 import 'themes/theme.dart';
 import 'InuPetProfile/add_pet_page.dart';
 
-void main() async {
+class FirebaseInitializer {
+  static bool _initialized = false;
+
+  static Future<void> initialize() async {
+    if (!_initialized) {
+      await Firebase.initializeApp(
+        options: FirebaseOptions(
+          apiKey: "AIzaSyBgdx-5nRYAiEjiIoKBn661UVamYgnhQwg",
+          authDomain: "veta-login.firebaseapp.com",
+          projectId: "veta-login",
+          storageBucket: "veta-login.firebasestorage.app",
+          messagingSenderId: "596091829422",
+          appId: "1:596091829422:web:87a3075a440f449fbb013f",
+          measurementId: "G-NWVETG4P5J",
+        ),
+      );
+      _initialized = true;
+      print('Firebase initialization successful.');
+    } else {
+      print('Firebase already initialized.');
+    }
+  }
+}
+
+Future<void> initializeApp() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+
+  // Initialize Firebase
+  print('Starting Firebase initialization...');
+  try {
+    await FirebaseInitializer.initialize();
+  } catch (e) {
+    print("Firebase initialization failed: $e");
+  }
+
+  // Initialize API Configuration
+  const environment =
+      String.fromEnvironment('FLUTTER_ENV', defaultValue: 'development');
+
+  switch (environment) {
+    case 'production':
+      ApiConfig.initConfig(Environment.production);
+      break;
+    case 'staging':
+      ApiConfig.initConfig(Environment.staging);
+      break;
+    default:
+      ApiConfig.initConfig(Environment.development);
+  }
+
+  // Check backend health
+  final apiService = ApiService();
+  final isHealthy = await apiService.checkHealth();
+  if (isHealthy) {
+    print('Backend is up and running!');
+  } else {
+    print('Warning: Backend is not accessible');
+    // You might want to show a user-friendly message or retry mechanism here
+  }
+}
+
+void main() async {
+  await initializeApp();
   runApp(const MyApp());
 }
 
@@ -24,7 +89,7 @@ class MyApp extends StatelessWidget {
       title: 'Veta.lk',
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
-      home: WelcomeScreen(),
+      home: const SplashScreen(),
     );
   }
 }
@@ -67,7 +132,7 @@ class _SplashScreenState extends State<SplashScreen>
     Timer(const Duration(seconds: 3), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const SigninScreen()),
+        MaterialPageRoute(builder: (context) => const Wrapper()),
       );
     });
   }

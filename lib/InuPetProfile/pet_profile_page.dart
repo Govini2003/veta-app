@@ -243,6 +243,7 @@ class _PetProfilePageState extends State<PetProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: true,
         title: Text('Veta.lk',
             style: TextStyle(fontWeight: FontWeight.bold, letterSpacing: 1.2)),
         backgroundColor: const Color(0xFF1D4D4F),

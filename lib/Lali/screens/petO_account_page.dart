@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
 import '../../features/profile/profile_navigation.dart';
+import 'package:auth_firebase/LoginSignupAuth/auth_service.dart';
+import 'package:auth_firebase/Entrance/welcome_screen.dart';
+import 'petO_home_page.dart';
+import 'petO_activities_page.dart';
+import 'veta_account_page.dart';
 
 class PetOAccountPage extends StatelessWidget {
+  final AuthService _authService = AuthService();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: true,
         title: Text(
           'My Account',
           style: TextStyle(
@@ -139,6 +147,40 @@ class PetOAccountPage extends StatelessWidget {
             ),
             SizedBox(height: 16),
 
+            // Veta Section
+            Card(
+              elevation: 4,
+              child: Padding(
+                padding: EdgeInsets.all(16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Veta',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'Poppins',
+                      ),
+                    ),
+                    SizedBox(height: 16),
+                    ListTile(
+                      leading: Icon(Icons.account_circle, color: Color(0xFF357376)),
+                      title: Text('Veta Account'),
+                      trailing: Icon(Icons.arrow_forward_ios),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => VetaAccountPage()),
+                        );
+                      },
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(height: 16),
+
             // Account Settings Section
             Card(
               elevation: 4,
@@ -179,12 +221,73 @@ class PetOAccountPage extends StatelessWidget {
                         //  privacy settings navigation (ToDo)
                       },
                     ),
+                    ListTile(
+                      leading: Icon(Icons.logout, color: Colors.red),
+                      title:
+                          Text('Logout', style: TextStyle(color: Colors.red)),
+                      onTap: () async {
+                        try {
+                          await _authService.logoutUser();
+                          // Navigate to welcome screen and remove all previous routes
+                          Navigator.of(context).pushAndRemoveUntil(
+                            MaterialPageRoute(
+                                builder: (context) => WelcomeScreen()),
+                            (route) => false,
+                          );
+                        } catch (e) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                                content:
+                                    Text('Logout failed: ${e.toString()}')),
+                          );
+                        }
+                      },
+                    ),
                   ],
                 ),
               ),
             ),
           ],
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        selectedItemColor: Color(0xFF357376),
+        unselectedItemColor: Colors.grey,
+        currentIndex: 3, // Account tab
+        onTap: (index) {
+          if (index == 0) {
+            Navigator.of(context).pushReplacement(
+              MaterialPageRoute(builder: (context) => PetOHomePage()),
+            );
+          } else if (index == 1) {
+            Navigator.of(context).pushReplacement(
+              MaterialPageRoute(builder: (context) => PetOHomePage()),
+            );
+          } else if (index == 2) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => PetOActivitiesPage()),
+            );
+          } else if (index == 3) {
+            // Already on Account page
+          }
+        },
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.medical_services),
+            label: 'Services',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.assignment),
+            label: 'Activities',
+          ),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Account'),
+        ],
       ),
     );
   }

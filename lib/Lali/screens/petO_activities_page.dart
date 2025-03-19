@@ -26,6 +26,7 @@ class _PetOActivitiesPageState extends State<PetOActivitiesPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: true,
         title: const Text(
           'Your Activities',
           style: TextStyle(
@@ -59,8 +60,11 @@ class _PetOActivitiesPageState extends State<PetOActivitiesPage> {
                     'Ongoing',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      color: _currentIndex == 0 ? const Color(0xFF64CCC5) : Colors.grey,
-                      decoration: _currentIndex == 0 ? TextDecoration.underline : null,
+                      color: _currentIndex == 0
+                          ? const Color(0xFF64CCC5)
+                          : Colors.grey,
+                      decoration:
+                          _currentIndex == 0 ? TextDecoration.underline : null,
                     ),
                   ),
                 ),
@@ -74,8 +78,11 @@ class _PetOActivitiesPageState extends State<PetOActivitiesPage> {
                     'Completed',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      color: _currentIndex == 1 ? const Color(0xFF64CCC5) : Colors.grey,
-                      decoration: _currentIndex == 1 ? TextDecoration.underline : null,
+                      color: _currentIndex == 1
+                          ? const Color(0xFF64CCC5)
+                          : Colors.grey,
+                      decoration:
+                          _currentIndex == 1 ? TextDecoration.underline : null,
                     ),
                   ),
                 ),

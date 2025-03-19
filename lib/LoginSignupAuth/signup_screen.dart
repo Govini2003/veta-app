@@ -106,10 +106,30 @@ class _SignupScreenState extends State<SignupScreen> {
                         setState(() {
                           isLoading = true;
                         });
-                        await _auth.loginWithGoogle();
-                        setState(() {
-                          isLoading = false;
-                        });
+                        try {
+                          final user = await _auth.signInWithGoogle();
+                          if (user != null) {
+                            goToHome(context);
+                          } else {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                content: Text('Google sign-in failed.'),
+                                backgroundColor: Colors.red,
+                              ),
+                            );
+                          }
+                        } catch (e) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text('Error: ${e.toString()}'),
+                              backgroundColor: Colors.red,
+                            ),
+                          );
+                        } finally {
+                          setState(() {
+                            isLoading = false;
+                          });
+                        }
                       },
                     ),
               const SizedBox(height: 5),
@@ -145,8 +165,23 @@ class _SignupScreenState extends State<SignupScreen> {
         isLoading = true;
       });
       try {
-        await _auth.createUserWithEmailAndPassword(_email.text, _password.text);
-        goToHome(context);
+        final user = await _auth.registerWithEmailAndPassword(
+          _email.text,
+          _password.text,
+          _name.text,
+          'pet_owner', // Default role, can be changed in role selection screen
+        );
+
+        if (user != null) {
+          goToHome(context);
+        } else {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('Registration failed. Please try again.'),
+              backgroundColor: Colors.red,
+            ),
+          );
+        }
       } catch (e) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text('Signup failed: ${e.toString()}')),

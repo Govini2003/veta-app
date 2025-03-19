@@ -1,11 +1,16 @@
 import 'dart:developer';
 
+import 'package:auth_firebase/Lali/screens/petO_home_page.dart';
+import 'package:auth_firebase/Lali/screens/vet_home_page.dart';
 import 'package:auth_firebase/LoginSignupAuth/auth_service.dart';
 import 'package:auth_firebase/LoginSignupAuth/signup_screen.dart';
 import 'package:auth_firebase/Entrance/role_selection_screen.dart';
 import 'package:auth_firebase/Entrance/EntranceWidgets/button.dart';
 import 'package:auth_firebase/Entrance/EntranceWidgets/textfield.dart';
 import 'package:flutter/material.dart';
+
+// Import the forgot password screen we'll create
+import 'forgot_password_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -76,7 +81,18 @@ class _LoginScreenState extends State<LoginScreen> {
                   return null;
                 },
               ),
-              const SizedBox(height: 30),
+              // Add Forgot Password link
+              Align(
+                alignment: Alignment.centerRight,
+                child: TextButton(
+                  onPressed: () => goToForgotPassword(context),
+                  child: const Text(
+                    "Forgot Password?",
+                    style: TextStyle(color: Colors.blue),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 10),
               CustomButton(
                 label: "Login",
                 onPressed: _login,
@@ -88,15 +104,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ? const CircularProgressIndicator()
                   : CustomButton(
                       label: "Signin with Google",
-                      onPressed: () async {
-                        setState(() {
-                          isLoading = true;
-                        });
-                        await _auth.loginWithGoogle();
-                        setState(() {
-                          isLoading = false;
-                        });
-                      },
+                      onPressed: _signInWithGoogle,
                     ),
               const SizedBox(height: 5),
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
@@ -120,14 +128,50 @@ class _LoginScreenState extends State<LoginScreen> {
         MaterialPageRoute(builder: (context) => const SignupScreen()),
       );
 
+  // Add navigation to forgot password screen
+  goToForgotPassword(BuildContext context) => Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const ForgotPasswordScreen()),
+      );
+
   _login() async {
     if (_formKey.currentState!.validate()) {
       setState(() {
         isLoading = true;
       });
       try {
-        await _auth.loginUserWithEmailAndPassword(_email.text, _password.text);
-        // Navigate to home or next screen after successful login
+        final user =
+            await _auth.loginWithEmailAndPassword(_email.text, _password.text);
+        if (user != null) {
+          // Fetch user role from the database
+          String role = await _auth.getUserRole(user.uid);
+          if (role == 'vet') {
+            Navigator.of(context).pushAndRemoveUntil(
+              MaterialPageRoute(builder: (context) => VetHomePage()),
+              (route) => false,
+            );
+          } else if (role == 'petOwner') {
+            Navigator.of(context).pushAndRemoveUntil(
+              MaterialPageRoute(builder: (context) => PetOHomePage()),
+              (route) => false,
+            );
+          } else {
+            // Handle unknown role
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text('Unknown role. Please contact support.'),
+                backgroundColor: Colors.red,
+              ),
+            );
+          }
+        } else {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('Login failed. Please check your credentials.'),
+              backgroundColor: Colors.red,
+            ),
+          );
+        }
       } catch (e) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text('Login failed: ${e.toString()}')),
@@ -137,6 +181,44 @@ class _LoginScreenState extends State<LoginScreen> {
           isLoading = false;
         });
       }
+    }
+  }
+
+  void _signInWithGoogle() async {
+    setState(() {
+      isLoading = true;
+    });
+
+    try {
+      final user = await _auth.signInWithGoogle();
+
+      if (user != null) {
+        // Navigate to role selection screen
+        Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(builder: (context) => const RoleSelectionScreen()),
+          (route) => false,
+        );
+      } else {
+        // Show error
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Google sign-in failed.'),
+            backgroundColor: Colors.red,
+          ),
+        );
+      }
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Error: ${e.toString()}'),
+          backgroundColor: Colors.red,
+        ),
+      );
+    } finally {
+      setState(() {
+        isLoading = false;
+      });
     }
   }
 }

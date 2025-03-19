@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'petO_home_page.dart'; // Import Pet Owner Home Page
 import 'petO_account_page.dart'; // Import Pet Owner Account Page
 import 'vet_home_page.dart'; // Import VetHomePage
+import 'vet_appointments_page.dart';
+import 'vet_payment_page.dart';
+import 'vetside_settings_page.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart'; // For FontAwesomeIcons
 
 class VetDashboard extends StatelessWidget {
@@ -9,6 +12,7 @@ class VetDashboard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: true,
         title: Text(
           'Veta.lk - Vet Dashboard',
           style: TextStyle(
@@ -129,6 +133,7 @@ class VetDashboard extends StatelessWidget {
         type: BottomNavigationBarType.fixed,
         selectedItemColor: const Color(0xFF357376),
         unselectedItemColor: Colors.grey,
+        currentIndex: 2, // Set to 2 for Insights tab
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(icon: Icon(Icons.calendar_today), label: 'Appointments'),
@@ -141,23 +146,29 @@ class VetDashboard extends StatelessWidget {
             case 0:
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => VetHomePage()), // Navigate to Vet Home Page
+                MaterialPageRoute(builder: (context) => VetHomePage()),
               );
               break;
             case 1:
-              // Navigate to Appointments
-              break;
-            case 2:
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => VetDashboard()), // Navigate to Vet Dashboard
+                MaterialPageRoute(builder: (context) => VetAppointmentsPage()),
               );
               break;
+            case 2:
+              // Already on Dashboard/Insights page
+              break;
             case 3:
-              // Navigate to Payments
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => VetPaymentPage()),
+              );
               break;
             case 4:
-              // Navigate to Settings
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => VetSettingsPage()),
+              );
               break;
           }
         },
@@ -172,7 +183,8 @@ class QuickActionButton extends StatelessWidget {
   final String label;
   final VoidCallback onTap;
 
-  QuickActionButton({required this.icon, required this.label, required this.onTap});
+  QuickActionButton(
+      {required this.icon, required this.label, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -210,7 +222,8 @@ class AppointmentCard extends StatelessWidget {
   final String time;
   final String date;
 
-  AppointmentCard({required this.patientName, required this.time, required this.date});
+  AppointmentCard(
+      {required this.patientName, required this.time, required this.date});
 
   @override
   Widget build(BuildContext context) {
