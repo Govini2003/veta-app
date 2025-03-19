@@ -1,4 +1,5 @@
 // veta-app/lib/models/chat_message.dart
+
 //chatbox message 
 class ChatMessage {
   final String text;
