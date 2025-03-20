@@ -1,6 +1,5 @@
 // veta-app/lib/screens/home_screen.dart
 // Necessary Imports
-
 import 'package:flutter/material.dart';
 import '../theme/app_theme.dart';
 import '../widgets/quick_access_card.dart';
