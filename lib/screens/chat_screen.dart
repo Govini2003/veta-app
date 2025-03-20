@@ -1,5 +1,4 @@
 // veta-app/lib/screens/chat_screen.dart
-
 // Necessary Imports
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
