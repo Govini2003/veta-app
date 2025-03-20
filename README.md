@@ -55,7 +55,7 @@ Veta.lk is a centralized digital platform designed to connect **pet owners** wit
 ✅ Display emergency vet availability
 
 #### 🛍️ Enhanced Pet Marketplace
-✅ Filter products by price, category, and availability
+✅ Filter products by price, category, and availability 
 ✅ Secure payment gateway for pet product purchases
 ✅ Chat feature for buyers & sellers
 
