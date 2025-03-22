@@ -1,0 +1,1 @@
+ D:\\Desktop\\Lali2windsurf\\veta-app\\.dart_tool\\flutter_build\\a12093b05343a4700d401d6a0e47fa68\\native_assets.yaml: 
