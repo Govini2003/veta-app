@@ -51,7 +51,7 @@ class MyPetsPage extends StatelessWidget {
       backgroundColor: Colors.grey[100],
       appBar: AppBar(
         title: Text(
-          'Pet Adoption',
+          'My Pets',
           style: TextStyle(
             fontFamily: 'Poppins',
             fontSize: 24,
@@ -231,23 +231,6 @@ class MyPetsPage extends StatelessWidget {
                                         ),
                                       ),
                                     ],
-                                  ),
-                                ),
-                              ),
-                              Positioned(
-                                top: 8,
-                                right: 8,
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: IconButton(
-                                    icon: Icon(Icons.delete_outline),
-                                    onPressed: () {
-                                      deletePet(index);
-                                    },
-                                    color: Colors.grey[600],
                                   ),
                                 ),
                               ),

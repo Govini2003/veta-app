@@ -1102,23 +1102,6 @@
                     }
                 },
                 {
-                    "source": "D:\\UOW Modules\\L5 SEMESTER 2\\Veta V's\\frontBackVetaVersion3\\frontBackVeta\\veta-app\\build\\app\\generated\\res\\google-services\\debug\\values\\values.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8",
-                        "startColumns": "4,4,4,4,4,4,4",
-                        "startOffsets": "55,199,281,385,494,614,716",
-                        "endColumns": "143,81,103,108,119,101,70",
-                        "endOffsets": "194,276,380,489,609,711,782"
-                    },
-                    "to": {
-                        "startLines": "424,429,430,431,432,433,438",
-                        "startColumns": "4,4,4,4,4,4,4",
-                        "startOffsets": "26954,27370,27452,27556,27665,27785,28071",
-                        "endColumns": "143,81,103,108,119,101,70",
-                        "endOffsets": "27093,27447,27551,27660,27780,27882,28137"
-                    }
-                },
-                {
                     "source": "C:\\Users\\12UCX\\.gradle\\caches\\transforms-3\\a88b2cc10a9f13317a3ffd4609387bc2\\transformed\\jetified-play-services-maps-18.2.0\\res\\values\\values.xml",
                     "from": {
                         "startLines": "4",
@@ -1135,6 +1118,25 @@
                         "endLines": "3193",
                         "endColumns": "20",
                         "endOffsets": "176873"
+                    }
+                },
+                {
+                    "source": "D:\\UOW Modules\\L5 SEMESTER 2\\Veta V's\\frontBackVetaVersion3\\veta-app\\frontend\\android\\app\\src\\main\\res\\values\\styles.xml",
+                    "from": {
+                        "startLines": "3,11",
+                        "startColumns": "4,4",
+                        "startOffsets": "176,692",
+                        "endLines": "5,13",
+                        "endColumns": "12,12",
+                        "endOffsets": "345,858"
+                    },
+                    "to": {
+                        "startLines": "1533,1536",
+                        "startColumns": "4,4",
+                        "startOffsets": "98099,98271",
+                        "endLines": "1535,1538",
+                        "endColumns": "12,12",
+                        "endOffsets": "98266,98435"
                     }
                 },
                 {
@@ -1226,25 +1228,6 @@
                         "startOffsets": "23921",
                         "endColumns": "82",
                         "endOffsets": "23999"
-                    }
-                },
-                {
-                    "source": "D:\\UOW Modules\\L5 SEMESTER 2\\Veta V's\\frontBackVetaVersion3\\frontBackVeta\\veta-app\\android\\app\\src\\main\\res\\values\\styles.xml",
-                    "from": {
-                        "startLines": "3,11",
-                        "startColumns": "4,4",
-                        "startOffsets": "176,692",
-                        "endLines": "5,13",
-                        "endColumns": "12,12",
-                        "endOffsets": "345,858"
-                    },
-                    "to": {
-                        "startLines": "1533,1536",
-                        "startColumns": "4,4",
-                        "startOffsets": "98099,98271",
-                        "endLines": "1535,1538",
-                        "endColumns": "12,12",
-                        "endOffsets": "98266,98435"
                     }
                 },
                 {
@@ -1370,6 +1353,23 @@
                         "endLines": "316,332,360,3028,3032",
                         "endColumns": "56,64,63,24,24",
                         "endOffsets": "19307,20069,21543,172508,172657"
+                    }
+                },
+                {
+                    "source": "D:\\UOW Modules\\L5 SEMESTER 2\\Veta V's\\frontBackVetaVersion3\\veta-app\\frontend\\build\\app\\generated\\res\\google-services\\debug\\values\\values.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "55,199,281,385,494,614,716",
+                        "endColumns": "143,81,103,108,119,101,70",
+                        "endOffsets": "194,276,380,489,609,711,782"
+                    },
+                    "to": {
+                        "startLines": "424,429,430,431,432,433,438",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "26954,27370,27452,27556,27665,27785,28071",
+                        "endColumns": "143,81,103,108,119,101,70",
+                        "endOffsets": "27093,27447,27551,27660,27780,27882,28137"
                     }
                 },
                 {

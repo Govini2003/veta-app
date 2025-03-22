@@ -6,8 +6,8 @@ import 'package:intl/intl.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart'; // For FontAwesomeIcons
 import 'petO_account_page.dart'; // Import Pet Owner Account Page
 import 'petO_activities_page.dart'; // Import Pet Owner Activities Page
-import 'vet_notification_page.dart';
-import 'chat_list_screen.dart';
+import 'petO_notification_screen.dart';
+import 'petO_chat_list_screen.dart';
 import 'petO_tips_page.dart';
 import 'vets_screen.dart';
 import 'clinics_screen.dart';
@@ -63,13 +63,19 @@ class _PetOHomePageState extends State<PetOHomePage> {
             IconButton(
               icon: Icon(Icons.notifications),
               onPressed: () {
-                // Notification functionality will be implemented later
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => PetONotificationScreen()),
+                );
               },
             ),
             IconButton(
               icon: Icon(Icons.message),
               onPressed: () {
-                // Message functionality will be implemented later
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => PetOChatListScreen()),
+                );
               },
             ),
           ],
