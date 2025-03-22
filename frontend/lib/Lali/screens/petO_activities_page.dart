@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'petO_home_page.dart';
 import 'petO_account_page.dart';
+import 'pet_services_screen.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class PetOActivitiesPage extends StatefulWidget {
@@ -96,48 +97,52 @@ class _PetOActivitiesPageState extends State<PetOActivitiesPage> {
           ),
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        backgroundColor: const Color(0xFF357376),
-        selectedItemColor: Colors.white,
-        unselectedItemColor: Colors.white54,
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.medical_services),
-            label: 'Services',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.assignment),
-            label: 'Activities',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Account',
-          ),
-        ],
-        currentIndex: 2,
-        onTap: (index) {
-          if (index == 0) {
-            Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(builder: (context) => PetOHomePage()),
-            );
-          } else if (index == 1) {
-            Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(builder: (context) => PetOHomePage()),
-            );
-          } else if (index == 3) {
-            Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(builder: (context) => PetOAccountPage()),
-            );
-          }
-        },
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          color: Color(0xFF6BA8A9),
+        ),
+        child: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          backgroundColor: Color(0xFF6BA8A9),
+          selectedItemColor: Colors.white,
+          unselectedItemColor: Colors.white.withOpacity(0.7),
+          currentIndex: 2,
+          onTap: (index) {
+            if (index == 0) {
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(builder: (context) => PetOHomePage()),
+              );
+            } else if (index == 1) {
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(builder: (context) => PetServicesScreen()),
+              );
+            } else if (index == 2) {
+              // Already on Activities page
+            } else if (index == 3) {
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(builder: (context) => PetOAccountPage()),
+              );
+            }
+          },
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.medical_services),
+              label: 'Services',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.assignment),
+              label: 'Activities',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              label: 'Account',
+            ),
+          ],
+        ),
       ),
     );
   }

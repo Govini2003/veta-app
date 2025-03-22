@@ -4,6 +4,11 @@ import 'petO_home_page.dart'; // Import Pet Owner Home Page
 import 'petO_account_page.dart'; // Import Pet Owner Account Page
 import 'vet_dashboard.dart'; // Import Vet Dashboard
 import 'vet_profile.dart'; // Import Vet Profile
+import 'vet_appointments_page.dart';
+import 'vet_payment_page.dart';
+import 'vetside_settings_page.dart';
+import 'vet_notification_page.dart';
+import 'chat_list_screen.dart';
 
 import 'package:font_awesome_flutter/font_awesome_flutter.dart'; // For FontAwesomeIcons
 
@@ -48,10 +53,21 @@ class _VetHomePageState extends State<VetHomePage> {
           ),
           actions: [
             IconButton(
-              icon: Icon(Icons.notifications,
-                  color: Colors.black), // Match icon color
+              icon: Icon(Icons.notifications, color: Colors.black),
               onPressed: () {
-                // Handle notifications
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => VetNotificationsPage()),
+                );
+              },
+            ),
+            IconButton(
+              icon: Icon(Icons.message, color: Colors.black),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ChatListScreen()),
+                );
               },
             ),
             IconButton(
@@ -63,13 +79,6 @@ class _VetHomePageState extends State<VetHomePage> {
                       builder: (context) =>
                           VetProfile()), // Navigate to Vet Profile
                 );
-              },
-            ),
-            IconButton(
-              icon:
-                  Icon(Icons.person, color: Colors.black), // Adding person icon
-              onPressed: () {
-                // Handle person action
               },
             ),
           ],
@@ -132,43 +141,41 @@ class _VetHomePageState extends State<VetHomePage> {
           type: BottomNavigationBarType.fixed,
           selectedItemColor: const Color(0xFF357376),
           unselectedItemColor: Colors.grey,
+          currentIndex: 0, // Set to 0 for Home tab
           items: const [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.calendar_today), label: 'Appointments'),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.business),
-                label: 'Insights'), // Changed from 'Services' to 'Insights'
+            BottomNavigationBarItem(icon: Icon(Icons.calendar_today), label: 'Appointments'),
+            BottomNavigationBarItem(icon: Icon(Icons.business), label: 'Insights'),
             BottomNavigationBarItem(icon: Icon(Icons.money), label: 'Payments'),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.settings), label: 'Settings'),
+            BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Settings'),
           ],
           onTap: (index) {
             switch (index) {
               case 0:
-                // Navigate to Home
+                // Already on Home page
                 break;
               case 1:
-                // Navigate to Appointments
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => VetAppointmentsPage()),
+                );
                 break;
               case 2:
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(
-                      builder: (context) =>
-                          VetDashboard()), // Navigate to Vet Dashboard
+                  MaterialPageRoute(builder: (context) => VetDashboard()),
                 );
-
                 break;
               case 3:
-                // Navigate to Payments
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => VetPaymentPage()),
+                );
                 break;
               case 4:
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(
-                      builder: (context) =>
-                          VetProfile()), // Navigate to Vet Profile
+                  MaterialPageRoute(builder: (context) => VetsideSettingsPage()),
                 );
                 break;
             }

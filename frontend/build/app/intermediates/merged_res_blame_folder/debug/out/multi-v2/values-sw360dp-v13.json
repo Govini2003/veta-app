@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.auth_firebase.app-mergeDebugResources-44:/values-sw360dp-v13/values-sw360dp-v13.xml",
+            "outputFile": "com.example.login_signup.app-mergeDebugResources-46:/values-sw360dp-v13/values-sw360dp-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-3\\1f0d515f4a9021487cccb41e970296e6\\transformed\\preference-1.2.1\\res\\values-sw360dp-v13\\values-sw360dp-v13.xml",
+                    "source": "C:\\Users\\12UCX\\.gradle\\caches\\transforms-3\\1f0d515f4a9021487cccb41e970296e6\\transformed\\preference-1.2.1\\res\\values-sw360dp-v13\\values-sw360dp-v13.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

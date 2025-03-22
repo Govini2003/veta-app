@@ -1,9 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
+import 'package:intl/intl.dart';
 
 import 'package:font_awesome_flutter/font_awesome_flutter.dart'; // For FontAwesomeIcons
 import 'petO_account_page.dart'; // Import Pet Owner Account Page
 import 'petO_activities_page.dart'; // Import Pet Owner Activities Page
+import 'vet_notification_page.dart';
+import 'chat_list_screen.dart';
+import 'petO_tips_page.dart';
+import 'vets_screen.dart';
+import 'clinics_screen.dart';
+import 'pharmacies_screen.dart';
+import 'pet_foods_screen.dart';
+import '../providers/appointments_provider.dart';
+import 'appointment_details_screen.dart';
+import 'pet_services_screen.dart';
 
 class PetOHomePage extends StatefulWidget {
   @override
@@ -35,20 +47,30 @@ class _PetOHomePageState extends State<PetOHomePage> {
       onWillPop: _onWillPop,
       child: Scaffold(
         appBar: AppBar(
-          automaticallyImplyLeading: false,
           title: Text(
             'Veta.lk',
             style: TextStyle(
               fontFamily: 'Poppins',
               fontSize: 24,
               fontWeight: FontWeight.bold,
+              color: Colors.black,
             ),
           ),
-          backgroundColor: Color(0xFF357376),
+          backgroundColor: Colors.white,
+          elevation: 0,
+          iconTheme: IconThemeData(color: Colors.black),
           actions: [
             IconButton(
-              icon: Icon(Icons.settings),
-              onPressed: () {},
+              icon: Icon(Icons.notifications),
+              onPressed: () {
+                // Notification functionality will be implemented later
+              },
+            ),
+            IconButton(
+              icon: Icon(Icons.message),
+              onPressed: () {
+                // Message functionality will be implemented later
+              },
             ),
           ],
         ),
@@ -75,13 +97,21 @@ class _PetOHomePageState extends State<PetOHomePage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Expanded(
-                      child: Text(
-                        "Take care of pet's health\nTips and tricks for your pet",
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => PetOTipsPage()),
+                          );
+                        },
+                        child: Text(
+                          "Take care of pet's health\nTips and tricks for your pet",
+                          style: TextStyle(
+                            fontFamily: 'Poppins',
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
                         ),
                       ),
                     ),
@@ -92,45 +122,66 @@ class _PetOHomePageState extends State<PetOHomePage> {
               SizedBox(height: 20),
 
               // Suggestions Section
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Suggestions',
-                    style: TextStyle(
-                      fontFamily: 'Poppins',
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      'See All',
+              Container(
+                padding: const EdgeInsets.all(16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Suggestions',
                       style: TextStyle(
-                        fontFamily: 'Questrial',
-                        fontSize: 16,
-                        color: Color(0xFF357376),
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
-                  ),
-                ],
-              ),
-
-              // Category Grid
-              GridView.count(
-                shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                crossAxisCount: 2,
-                childAspectRatio: 1.5,
-                mainAxisSpacing: 10,
-                crossAxisSpacing: 10,
-                children: [
-                  CategoryCard(icon: Icons.medical_services, title: 'Vets'),
-                  CategoryCard(icon: Icons.local_hospital, title: 'Clinics'),
-                  CategoryCard(icon: Icons.local_pharmacy, title: 'Pharmacies'),
-                  CategoryCard(icon: Icons.pets, title: 'Pet Foods'),
-                ],
+                    const SizedBox(height: 16),
+                    GridView.count(
+                      shrinkWrap: true,
+                      physics: NeverScrollableScrollPhysics(),
+                      crossAxisCount: 2,
+                      mainAxisSpacing: 16,
+                      crossAxisSpacing: 16,
+                      children: [
+                        _buildSuggestionCard(
+                          context,
+                          'Vets',
+                          Icons.medical_services,
+                          () => Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => VetsScreen()),
+                          ),
+                        ),
+                        _buildSuggestionCard(
+                          context,
+                          'Clinics',
+                          Icons.local_hospital,
+                          () => Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => ClinicsScreen()),
+                          ),
+                        ),
+                        _buildSuggestionCard(
+                          context,
+                          'Pharmacies',
+                          Icons.local_pharmacy,
+                          () => Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => PharmaciesScreen()),
+                          ),
+                        ),
+                        _buildSuggestionCard(
+                          context,
+                          'Pet Foods',
+                          Icons.pets,
+                          () => Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => PetFoodsScreen()),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
               SizedBox(height: 20),
 
@@ -161,79 +212,73 @@ class _PetOHomePageState extends State<PetOHomePage> {
               ),
               SizedBox(height: 20),
 
-              // Upcoming Appointment Card
-              Container(
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black12,
-                      blurRadius: 5,
-                      offset: Offset(0, 2),
-                    ),
-                  ],
-                ),
-                padding: EdgeInsets.all(16),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Upcoming appointment",
-                      style: TextStyle(
-                        fontFamily: 'Poppins',
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(height: 8),
-                    Text(
-                      "Saint David Clinic",
-                      style: TextStyle(
-                        fontFamily: 'Questrial',
-                        fontSize: 14,
-                      ),
-                    ),
-                    Text(
-                      "Doctor Nancy Green",
-                      style: TextStyle(
-                        fontFamily: 'Questrial',
-                        fontSize: 14,
-                      ),
-                    ),
-                    SizedBox(height: 8),
-                    Text(
-                      "Friday, May 12, 10 AM - 10.30 AM",
-                      style: TextStyle(
-                        fontFamily: 'Questrial',
-                        fontSize: 12,
-                        color: Colors.grey[600],
-                      ),
-                    ),
-                    SizedBox(height: 8),
-                    TextButton(
-                      onPressed: () {},
-                      child: Text(
-                        'View >',
+              // Upcoming Appointments Section
+              if (Provider.of<AppointmentsProvider>(context).upcomingAppointments.isNotEmpty)
+                Container(
+                  padding: const EdgeInsets.all(16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Upcoming appointments',
                         style: TextStyle(
-                          color: Colors.white,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
-                      style: TextButton.styleFrom(
-                        backgroundColor: Color(0xFF64CCC5), // Greenish color
-                        padding:
-                            EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
-                        ),
+                      SizedBox(height: 8),
+                      Consumer<AppointmentsProvider>(
+                        builder: (context, appointmentsProvider, child) {
+                          final upcomingAppointments = appointmentsProvider.upcomingAppointments;
+                          return ListView.builder(
+                            shrinkWrap: true,
+                            physics: NeverScrollableScrollPhysics(),
+                            itemCount: upcomingAppointments.length,
+                            itemBuilder: (context, index) {
+                              final appointment = upcomingAppointments[index];
+                              return Card(
+                                margin: EdgeInsets.only(bottom: 8),
+                                child: ListTile(
+                                  leading: CircleAvatar(
+                                    backgroundImage: AssetImage(appointment.vetImage),
+                                  ),
+                                  title: Text(appointment.clinicName),
+                                  subtitle: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text(appointment.vetName),
+                                      Text(
+                                        DateFormat('EEEE, MMMM d, y - h:mm a')
+                                            .format(appointment.dateTime),
+                                        style: TextStyle(color: Colors.grey[600]),
+                                      ),
+                                    ],
+                                  ),
+                                  trailing: TextButton(
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => AppointmentDetailsScreen(
+                                            appointment: appointment,
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                    child: Text(
+                                      'View >',
+                                      style: TextStyle(color: Color(0xFF6BA8A9)),
+                                    ),
+                                  ),
+                                ),
+                              );
+                            },
+                          );
+                        },
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-              SizedBox(height: 20), // Corrected the placement of SizedBox
-
-              // Removed "View Your Vet Activity Insights" Button
 
               ElevatedButton(
                 onPressed: () {},
@@ -257,87 +302,95 @@ class _PetOHomePageState extends State<PetOHomePage> {
             ],
           ),
         ),
-        bottomNavigationBar: BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
-          selectedItemColor: Color(0xFF357376),
-          unselectedItemColor: Colors.grey,
-          currentIndex: 0,
-          onTap: (index) {
-            if (index == 0) {
-              Navigator.of(context).pushReplacement(
-                MaterialPageRoute(builder: (context) => PetOHomePage()),
-              );
-            } else if (index == 1) {
-              Navigator.of(context).pushReplacement(
-                MaterialPageRoute(builder: (context) => PetOHomePage()),
-              );
-            } else if (index == 2) {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => PetOActivitiesPage()),
-              );
-            } else if (index == 3) {
-              Navigator.of(context).pushReplacement(
-                MaterialPageRoute(builder: (context) => PetOAccountPage()),
-              );
-            }
-          },
-          items: [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.medical_services),
-              label: 'Services',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.assignment),
-              label: 'Activities',
-            ),
-            BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Account'),
-          ],
+        bottomNavigationBar: Container(
+          decoration: BoxDecoration(
+            color: Color(0xFF6BA8A9),
+          ),
+          child: BottomNavigationBar(
+            type: BottomNavigationBarType.fixed,
+            backgroundColor: Color(0xFF6BA8A9),
+            selectedItemColor: Colors.white,
+            unselectedItemColor: Colors.white.withOpacity(0.7),
+            currentIndex: 0,
+            onTap: (index) {
+              if (index == 0) {
+                // Already on Home page
+              } else if (index == 1) {
+                Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(builder: (context) => PetServicesScreen()),
+                );
+              } else if (index == 2) {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => PetOActivitiesPage()),
+                );
+              } else if (index == 3) {
+                Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(builder: (context) => PetOAccountPage()),
+                );
+              }
+            },
+            items: [
+              BottomNavigationBarItem(
+                icon: Icon(Icons.home),
+                label: 'Home',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.medical_services),
+                label: 'Services',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.assignment),
+                label: 'Activities',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.person),
+                label: 'Account',
+              ),
+            ],
+          ),
         ),
       ),
     );
   }
-}
 
-class CategoryCard extends StatelessWidget {
-  final IconData icon;
-  final String title;
-
-  CategoryCard({required this.icon, required this.title});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Color(0xFFE5DFDF),
-        borderRadius: BorderRadius.circular(10),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black12,
-            blurRadius: 5,
-            offset: Offset(0, 2),
+  Widget _buildSuggestionCard(
+    BuildContext context,
+    String title,
+    IconData icon,
+    VoidCallback onTap,
+  ) {
+    return Card(
+      elevation: 2,
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(8),
+        child: Container(
+          padding: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8),
+            color: Colors.white,
           ),
-        ],
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(icon, size: 32, color: Color(0xFF357376)),
-          SizedBox(height: 8),
-          Text(
-            title,
-            style: TextStyle(
-              fontFamily: 'Questrial',
-              fontSize: 16,
-              fontWeight: FontWeight.normal,
-              color: Color(0xFF357376),
-            ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                icon,
+                size: 40,
+                color: const Color(0xFF6BA8A9),
+              ),
+              const SizedBox(height: 8),
+              Text(
+                title,
+                style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
