@@ -9,14 +9,14 @@
 9        android:targetSdkVersion="35" />
 10
 11    <uses-permission android:name="android.permission.INTERNET" />
-11-->D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\android\app\src\main\AndroidManifest.xml:4:5-66
-11-->D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\android\app\src\main\AndroidManifest.xml:4:22-64
+11-->D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\android\app\src\main\AndroidManifest.xml:4:5-66
+11-->D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\android\app\src\main\AndroidManifest.xml:4:22-64
 12    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-12-->D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\android\app\src\main\AndroidManifest.xml:5:5-78
-12-->D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\android\app\src\main\AndroidManifest.xml:5:22-76
+12-->D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\android\app\src\main\AndroidManifest.xml:5:5-78
+12-->D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\android\app\src\main\AndroidManifest.xml:5:22-76
 13    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-13-->D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\android\app\src\main\AndroidManifest.xml:6:5-80
-13-->D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\android\app\src\main\AndroidManifest.xml:6:22-78
+13-->D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\android\app\src\main\AndroidManifest.xml:6:5-80
+13-->D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\android\app\src\main\AndroidManifest.xml:6:22-78
 14    <!-- Although the *SdkVersion is captured in gradle build files, this is required for non gradle builds -->
 15    <!-- <uses-sdk android:minSdkVersion="14" /> -->
 16    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -56,90 +56,90 @@
 35
 36    <application
 37        android:name="android.app.Application"
-37-->D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\android\app\src\main\AndroidManifest.xml:10:9-42
+37-->D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\android\app\src\main\AndroidManifest.xml:10:9-42
 38        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 38-->[androidx.core:core:1.13.1] C:\Users\12UCX\.gradle\caches\transforms-3\53fbbd67aaf35f977ed080c6d4fd2a93\transformed\core-1.13.1\AndroidManifest.xml:28:18-86
 39        android:debuggable="true"
 40        android:extractNativeLibs="true"
 41        android:icon="@mipmap/ic_launcher"
-41-->D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\android\app\src\main\AndroidManifest.xml:11:9-43
+41-->D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\android\app\src\main\AndroidManifest.xml:11:9-43
 42        android:label="auth_firebase" >
-42-->D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\android\app\src\main\AndroidManifest.xml:9:9-38
+42-->D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\android\app\src\main\AndroidManifest.xml:9:9-38
 43        <activity
-43-->D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\android\app\src\main\AndroidManifest.xml:12:9-28:20
+43-->D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\android\app\src\main\AndroidManifest.xml:12:9-28:20
 44            android:name="com.example.login_signup.MainActivity"
-44-->D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\android\app\src\main\AndroidManifest.xml:13:13-41
+44-->D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\android\app\src\main\AndroidManifest.xml:13:13-41
 45            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
-45-->D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\android\app\src\main\AndroidManifest.xml:17:13-163
+45-->D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\android\app\src\main\AndroidManifest.xml:17:13-163
 46            android:exported="true"
-46-->D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\android\app\src\main\AndroidManifest.xml:14:13-36
+46-->D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\android\app\src\main\AndroidManifest.xml:14:13-36
 47            android:hardwareAccelerated="true"
-47-->D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\android\app\src\main\AndroidManifest.xml:18:13-47
+47-->D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\android\app\src\main\AndroidManifest.xml:18:13-47
 48            android:launchMode="singleTop"
-48-->D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\android\app\src\main\AndroidManifest.xml:15:13-43
+48-->D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\android\app\src\main\AndroidManifest.xml:15:13-43
 49            android:theme="@style/LaunchTheme"
-49-->D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\android\app\src\main\AndroidManifest.xml:16:13-47
+49-->D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\android\app\src\main\AndroidManifest.xml:16:13-47
 50            android:windowSoftInputMode="adjustResize" >
-50-->D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\android\app\src\main\AndroidManifest.xml:19:13-55
+50-->D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\android\app\src\main\AndroidManifest.xml:19:13-55
 51            <meta-data
-51-->D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\android\app\src\main\AndroidManifest.xml:20:13-23:17
+51-->D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\android\app\src\main\AndroidManifest.xml:20:13-23:17
 52                android:name="io.flutter.embedding.android.NormalTheme"
-52-->D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\android\app\src\main\AndroidManifest.xml:21:15-70
+52-->D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\android\app\src\main\AndroidManifest.xml:21:15-70
 53                android:resource="@style/NormalTheme" />
-53-->D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\android\app\src\main\AndroidManifest.xml:22:15-52
+53-->D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\android\app\src\main\AndroidManifest.xml:22:15-52
 54
 55            <intent-filter>
-55-->D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\android\app\src\main\AndroidManifest.xml:24:13-27:29
+55-->D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\android\app\src\main\AndroidManifest.xml:24:13-27:29
 56                <action android:name="android.intent.action.MAIN" />
-56-->D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\android\app\src\main\AndroidManifest.xml:25:17-68
-56-->D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\android\app\src\main\AndroidManifest.xml:25:25-66
+56-->D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\android\app\src\main\AndroidManifest.xml:25:17-68
+56-->D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\android\app\src\main\AndroidManifest.xml:25:25-66
 57
 58                <category android:name="android.intent.category.LAUNCHER" />
-58-->D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\android\app\src\main\AndroidManifest.xml:26:17-76
-58-->D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\android\app\src\main\AndroidManifest.xml:26:27-74
+58-->D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\android\app\src\main\AndroidManifest.xml:26:17-76
+58-->D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\android\app\src\main\AndroidManifest.xml:26:27-74
 59            </intent-filter>
 60        </activity>
 61
 62        <meta-data
-62-->D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\android\app\src\main\AndroidManifest.xml:29:9-31:33
+62-->D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\android\app\src\main\AndroidManifest.xml:29:9-31:33
 63            android:name="flutterEmbedding"
-63-->D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\android\app\src\main\AndroidManifest.xml:30:13-44
+63-->D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\android\app\src\main\AndroidManifest.xml:30:13-44
 64            android:value="2" />
-64-->D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\android\app\src\main\AndroidManifest.xml:31:13-30
+64-->D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\android\app\src\main\AndroidManifest.xml:31:13-30
 65        <!-- Google Maps API Key -->
 66        <meta-data
-66-->D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\android\app\src\main\AndroidManifest.xml:33:9-35:43
+66-->D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\android\app\src\main\AndroidManifest.xml:33:9-35:43
 67            android:name="com.google.android.geo.API_KEY"
-67-->D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\android\app\src\main\AndroidManifest.xml:34:13-58
+67-->D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\android\app\src\main\AndroidManifest.xml:34:13-58
 68            android:value="YOUR_API_KEY" />
-68-->D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\android\app\src\main\AndroidManifest.xml:35:13-41
+68-->D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\android\app\src\main\AndroidManifest.xml:35:13-41
 69
 70        <service
-70-->[:cloud_firestore] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\build\cloud_firestore\intermediates\merged_manifest\debug\AndroidManifest.xml:8:9-12:19
+70-->[:cloud_firestore] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\build\cloud_firestore\intermediates\merged_manifest\debug\AndroidManifest.xml:8:9-12:19
 71            android:name="com.google.firebase.components.ComponentDiscoveryService"
-71-->[:cloud_firestore] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\build\cloud_firestore\intermediates\merged_manifest\debug\AndroidManifest.xml:8:18-89
+71-->[:cloud_firestore] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\build\cloud_firestore\intermediates\merged_manifest\debug\AndroidManifest.xml:8:18-89
 72            android:directBootAware="true"
 72-->[com.google.firebase:firebase-common:20.4.3] C:\Users\12UCX\.gradle\caches\transforms-3\aee8f61bb308a28202401007eb53b1cb\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:32:13-43
 73            android:exported="false" >
 73-->[com.google.firebase:firebase-firestore:24.11.0] C:\Users\12UCX\.gradle\caches\transforms-3\a86f7465cd1e9272ec2a564f255c5516\transformed\jetified-firebase-firestore-24.11.0\AndroidManifest.xml:16:13-37
 74            <meta-data
-74-->[:cloud_firestore] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\build\cloud_firestore\intermediates\merged_manifest\debug\AndroidManifest.xml:9:13-11:85
+74-->[:cloud_firestore] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\build\cloud_firestore\intermediates\merged_manifest\debug\AndroidManifest.xml:9:13-11:85
 75                android:name="com.google.firebase.components:io.flutter.plugins.firebase.firestore.FlutterFirebaseFirestoreRegistrar"
-75-->[:cloud_firestore] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\build\cloud_firestore\intermediates\merged_manifest\debug\AndroidManifest.xml:10:17-134
+75-->[:cloud_firestore] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\build\cloud_firestore\intermediates\merged_manifest\debug\AndroidManifest.xml:10:17-134
 76                android:value="com.google.firebase.components.ComponentRegistrar" />
-76-->[:cloud_firestore] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\build\cloud_firestore\intermediates\merged_manifest\debug\AndroidManifest.xml:11:17-82
+76-->[:cloud_firestore] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\build\cloud_firestore\intermediates\merged_manifest\debug\AndroidManifest.xml:11:17-82
 77            <meta-data
-77-->[:firebase_auth] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:9:13-11:85
+77-->[:firebase_auth] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:9:13-11:85
 78                android:name="com.google.firebase.components:io.flutter.plugins.firebase.auth.FlutterFirebaseAuthRegistrar"
-78-->[:firebase_auth] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:10:17-124
+78-->[:firebase_auth] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:10:17-124
 79                android:value="com.google.firebase.components.ComponentRegistrar" />
-79-->[:firebase_auth] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:11:17-82
+79-->[:firebase_auth] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:11:17-82
 80            <meta-data
-80-->[:firebase_core] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:9:13-11:85
+80-->[:firebase_core] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:9:13-11:85
 81                android:name="com.google.firebase.components:io.flutter.plugins.firebase.core.FlutterFirebaseCoreRegistrar"
-81-->[:firebase_core] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:10:17-124
+81-->[:firebase_core] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:10:17-124
 82                android:value="com.google.firebase.components.ComponentRegistrar" />
-82-->[:firebase_core] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:11:17-82
+82-->[:firebase_core] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:11:17-82
 83            <meta-data
 83-->[com.google.firebase:firebase-firestore:24.11.0] C:\Users\12UCX\.gradle\caches\transforms-3\a86f7465cd1e9272ec2a564f255c5516\transformed\jetified-firebase-firestore-24.11.0\AndroidManifest.xml:17:13-19:85
 84                android:name="com.google.firebase.components:com.google.firebase.firestore.FirebaseFirestoreKtxRegistrar"
@@ -173,63 +173,63 @@
 98        </service>
 99
 100        <provider
-100-->[:image_picker_android] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:9:9-17:20
+100-->[:image_picker_android] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:9:9-17:20
 101            android:name="io.flutter.plugins.imagepicker.ImagePickerFileProvider"
-101-->[:image_picker_android] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:10:13-82
+101-->[:image_picker_android] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:10:13-82
 102            android:authorities="com.example.login_signup.flutter.image_provider"
-102-->[:image_picker_android] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-74
+102-->[:image_picker_android] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-74
 103            android:exported="false"
-103-->[:image_picker_android] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:12:13-37
+103-->[:image_picker_android] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:12:13-37
 104            android:grantUriPermissions="true" >
-104-->[:image_picker_android] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:13:13-47
+104-->[:image_picker_android] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:13:13-47
 105            <meta-data
-105-->[:image_picker_android] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:14:13-16:75
+105-->[:image_picker_android] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:14:13-16:75
 106                android:name="android.support.FILE_PROVIDER_PATHS"
-106-->[:image_picker_android] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:15:17-67
+106-->[:image_picker_android] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:15:17-67
 107                android:resource="@xml/flutter_image_picker_file_paths" />
-107-->[:image_picker_android] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:16:17-72
+107-->[:image_picker_android] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:16:17-72
 108        </provider> <!-- Trigger Google Play services to install the backported photo picker module. -->
 109        <service
-109-->[:image_picker_android] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:19:9-31:19
+109-->[:image_picker_android] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:19:9-31:19
 110            android:name="com.google.android.gms.metadata.ModuleDependencies"
-110-->[:image_picker_android] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:20:13-78
+110-->[:image_picker_android] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:20:13-78
 111            android:enabled="false"
-111-->[:image_picker_android] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:21:13-36
+111-->[:image_picker_android] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:21:13-36
 112            android:exported="false" >
-112-->[:image_picker_android] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:22:13-37
+112-->[:image_picker_android] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:22:13-37
 113            <intent-filter>
-113-->[:image_picker_android] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:24:13-26:29
+113-->[:image_picker_android] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:24:13-26:29
 114                <action android:name="com.google.android.gms.metadata.MODULE_DEPENDENCIES" />
-114-->[:image_picker_android] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:25:17-94
-114-->[:image_picker_android] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:25:25-91
+114-->[:image_picker_android] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:25:17-94
+114-->[:image_picker_android] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:25:25-91
 115            </intent-filter>
 116
 117            <meta-data
-117-->[:image_picker_android] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:28:13-30:36
+117-->[:image_picker_android] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:28:13-30:36
 118                android:name="photopicker_activity:0:required"
-118-->[:image_picker_android] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:29:17-63
+118-->[:image_picker_android] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:29:17-63
 119                android:value="" />
-119-->[:image_picker_android] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:30:17-33
+119-->[:image_picker_android] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:30:17-33
 120        </service>
 121        <service
-121-->[:geolocator_android] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:8:9-12:56
+121-->[:geolocator_android] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:8:9-12:56
 122            android:name="com.baseflow.geolocator.GeolocatorLocationService"
-122-->[:geolocator_android] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:9:13-77
+122-->[:geolocator_android] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:9:13-77
 123            android:enabled="true"
-123-->[:geolocator_android] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:10:13-35
+123-->[:geolocator_android] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:10:13-35
 124            android:exported="false"
-124-->[:geolocator_android] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-37
+124-->[:geolocator_android] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-37
 125            android:foregroundServiceType="location" />
-125-->[:geolocator_android] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:12:13-53
+125-->[:geolocator_android] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:12:13-53
 126
 127        <activity
-127-->[:url_launcher_android] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:8:9-11:74
+127-->[:url_launcher_android] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:8:9-11:74
 128            android:name="io.flutter.plugins.urllauncher.WebViewActivity"
-128-->[:url_launcher_android] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:9:13-74
+128-->[:url_launcher_android] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:9:13-74
 129            android:exported="false"
-129-->[:url_launcher_android] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:10:13-37
+129-->[:url_launcher_android] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:10:13-37
 130            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-130-->[:url_launcher_android] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\frontBackVeta\veta-app\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-71
+130-->[:url_launcher_android] D:\UOW Modules\L5 SEMESTER 2\Veta V's\frontBackVetaVersion3\veta-app\frontend\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-71
 131        <activity
 131-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\12UCX\.gradle\caches\transforms-3\bd9262b0d8638318cd9a9f580d40d28b\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:29:9-46:20
 132            android:name="com.google.firebase.auth.internal.GenericIdpActivity"

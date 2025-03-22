@@ -157,16 +157,6 @@ class _PetProfilePageState extends State<PetProfilePage> {
     }
   }
 
-  void _navigateToBookAppointment() {
-    // TODO: Implement navigation to appointment booking page
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text('Appointment booking coming soon!'),
-        duration: Duration(seconds: 2),
-      ),
-    );
-  }
-
   void _navigateToAddPet() {
     Navigator.push(
       context,
@@ -354,30 +344,7 @@ class _PetProfilePageState extends State<PetProfilePage> {
         mainAxisSize: MainAxisSize.min,
         children: [
           Padding(
-            padding: const EdgeInsets.all(28),
-            child: ElevatedButton.icon(
-              onPressed: _navigateToBookAppointment,
-              icon: Icon(Icons.calendar_today, color: Colors.white),
-              label: Text(
-                'Book Appointment',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.white,
-                ),
-              ),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Color(0xFF357376),
-                padding: EdgeInsets.symmetric(vertical: 16, horizontal: 30),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                elevation: 3,
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(bottom: 28, left: 28, right: 28),
+            padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 8),
             child: ElevatedButton.icon(
               onPressed: _navigateToAddPet,
               icon: Icon(Icons.add, color: Colors.white),
@@ -391,6 +358,54 @@ class _PetProfilePageState extends State<PetProfilePage> {
               ),
               style: ElevatedButton.styleFrom(
                 backgroundColor: Color(0xFF6BA8A9),
+                padding: EdgeInsets.symmetric(vertical: 16, horizontal: 30),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                elevation: 3,
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 28, left: 28, right: 28),
+            child: ElevatedButton.icon(
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (context) => AlertDialog(
+                    title: Text('Remove Profile'),
+                    content: Text('Are you sure you want to remove ${widget.petName}\'s profile? This action cannot be undone.'),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.pop(context),
+                        child: Text('Cancel'),
+                      ),
+                      ElevatedButton(
+                        onPressed: () {
+                          // TODO: Implement profile removal logic
+                          Navigator.pop(context); // Close dialog
+                          Navigator.pop(context); // Return to previous screen
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.red,
+                        ),
+                        child: Text('Remove'),
+                      ),
+                    ],
+                  ),
+                );
+              },
+              icon: Icon(Icons.delete_forever, color: Colors.white),
+              label: Text(
+                'Remove Profile',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.white,
+                ),
+              ),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.red,
                 padding: EdgeInsets.symmetric(vertical: 16, horizontal: 30),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
