@@ -1,4 +1,4 @@
-// veta-app/lib/main.dart
+//veta-app/lib/main.dart
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:google_fonts/google_fonts.dart';
