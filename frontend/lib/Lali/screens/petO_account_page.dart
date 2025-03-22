@@ -4,9 +4,36 @@ import 'package:auth_firebase/LoginSignupAuth/auth_service.dart';
 import 'package:auth_firebase/Entrance/welcome_screen.dart';
 import 'petO_home_page.dart';
 import 'petO_activities_page.dart';
+import 'petO_coll_page.dart';
+import 'veta_account_page.dart';
+import 'pet_services_screen.dart';
+import 'edit_profile_screen.dart';
+import 'owner_details_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class PetOAccountPage extends StatelessWidget {
+class PetOAccountPage extends StatefulWidget {
+  @override
+  _PetOAccountPageState createState() => _PetOAccountPageState();
+}
+
+class _PetOAccountPageState extends State<PetOAccountPage> {
   final AuthService _authService = AuthService();
+  String _ownerName = 'Pet Owner Name';
+  String _ownerLocation = '';
+
+  @override
+  void initState() {
+    super.initState();
+    _loadProfileData();
+  }
+
+  Future<void> _loadProfileData() async {
+    final prefs = await SharedPreferences.getInstance();
+    setState(() {
+      _ownerName = prefs.getString('ownerName') ?? 'Pet Owner Name';
+      _ownerLocation = prefs.getString('ownerLocation') ?? '';
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,17 +75,55 @@ class PetOAccountPage extends StatelessWidget {
                     ),
                     SizedBox(height: 16),
                     Text(
-                      'Pet Owner Name',
+                      _ownerName,
                       style: TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
                         fontFamily: 'Poppins',
                       ),
                     ),
+                    if (_ownerLocation.isNotEmpty) ...[
+                      SizedBox(height: 8),
+                      Container(
+                        padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                        decoration: BoxDecoration(
+                          color: Color(0xFF6BA8A9).withOpacity(0.1),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Icon(
+                              Icons.location_on,
+                              color: Color(0xFF357376),
+                              size: 16,
+                            ),
+                            SizedBox(width: 4),
+                            Text(
+                              _ownerLocation,
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: Color(0xFF357376),
+                                fontFamily: 'Poppins',
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
                     SizedBox(height: 8),
                     ElevatedButton(
-                      onPressed: () =>
-                          ProfileNavigation.navigateToEditProfile(context),
+                      onPressed: () async {
+                        final result = await Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => EditProfileScreen(),
+                          ),
+                        );
+                        if (result == true) {
+                          _loadProfileData();
+                        }
+                      },
                       child: Text('Edit Profile'),
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Color(0xFF357376),
@@ -87,20 +152,27 @@ class PetOAccountPage extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 16),
-                    ListTile(
-                      leading: Icon(Icons.pets, color: Color(0xFF357376)),
-                      title: Text('My Pets'),
-                      trailing: Icon(Icons.arrow_forward_ios),
-                      onTap: () => ProfileNavigation.navigateToPetDetails(
-                        context,
-                        // Optional parameters can be added here if available
-                      ),
-                    ),
-                    ListTile(
-                      leading: Icon(Icons.add_circle, color: Color(0xFF357376)),
-                      title: Text('Add New Pet'),
-                      trailing: Icon(Icons.arrow_forward_ios),
-                      onTap: () => ProfileNavigation.navigateToAddPet(context),
+                    _buildAccountItem(
+                      context,
+                      'My Pets',
+                      Icons.pets,
+                      () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => MyPetsPage(
+                              addPet: (pet) {
+                                // Add pet logic will be implemented later
+                                print('Adding pet: ${pet.name}');
+                              },
+                              deletePet: (index) {
+                                // Delete pet logic will be implemented later
+                                print('Deleting pet at index: $index');
+                              },
+                            ),
+                          ),
+                        );
+                      },
                     ),
                     ListTile(
                       leading: Icon(Icons.event, color: Color(0xFF357376)),
@@ -146,6 +218,54 @@ class PetOAccountPage extends StatelessWidget {
             ),
             SizedBox(height: 16),
 
+            // Veta Section
+            Card(
+              elevation: 4,
+              child: Padding(
+                padding: EdgeInsets.all(16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Veta',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'Poppins',
+                      ),
+                    ),
+                    SizedBox(height: 16),
+                    ListTile(
+                      leading: Icon(Icons.account_circle, color: Color(0xFF357376)),
+                      title: Text('Veta Account'),
+                      trailing: Icon(Icons.arrow_forward_ios),
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => VetaAccountPage()),
+                      ),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.stars, color: Color(0xFF357376)),
+                      title: Text('Veta Points'),
+                      trailing: Icon(Icons.arrow_forward_ios),
+                      onTap: () {
+                        // Navigate to Veta Points
+                      },
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.card_giftcard, color: Color(0xFF357376)),
+                      title: Text('Veta Rewards'),
+                      trailing: Icon(Icons.arrow_forward_ios),
+                      onTap: () {
+                        // Navigate to Veta Rewards
+                      },
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(height: 16),
+
             // Account Settings Section
             Card(
               elevation: 4,
@@ -171,19 +291,32 @@ class PetOAccountPage extends StatelessWidget {
                           ProfileNavigation.showAccountSettings(context),
                     ),
                     ListTile(
-                      leading:
-                          Icon(Icons.person_outline, color: Color(0xFF357376)),
+                      leading: Icon(Icons.person_outline, color: Color(0xFF357376)),
                       title: Text('Owner Details'),
                       trailing: Icon(Icons.arrow_forward_ios),
-                      onTap: () =>
-                          ProfileNavigation.navigateToAddOwnerDetails(context),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => OwnerDetailsScreen(),
+                          ),
+                        );
+                      },
                     ),
                     ListTile(
-                      leading: Icon(Icons.security, color: Color(0xFF357376)),
+                      leading: Icon(Icons.notifications, color: Color(0xFF357376)),
+                      title: Text('Notification Settings'),
+                      trailing: Icon(Icons.arrow_forward_ios),
+                      onTap: () {
+                        // Navigate to Notification Settings
+                      },
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.privacy_tip, color: Color(0xFF357376)),
                       title: Text('Privacy Settings'),
                       trailing: Icon(Icons.arrow_forward_ios),
                       onTap: () {
-                        //  privacy settings navigation (ToDo)
+                        // Navigate to Privacy Settings
                       },
                     ),
                     ListTile(
@@ -215,45 +348,62 @@ class PetOAccountPage extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        selectedItemColor: Color(0xFF357376),
-        unselectedItemColor: Colors.grey,
-        currentIndex: 3, // Account tab
-        onTap: (index) {
-          if (index == 0) {
-            Navigator.of(context).pushReplacement(
-              MaterialPageRoute(builder: (context) => PetOHomePage()),
-            );
-          } else if (index == 1) {
-            Navigator.of(context).pushReplacement(
-              MaterialPageRoute(builder: (context) => PetOHomePage()),
-            );
-          } else if (index == 2) {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => PetOActivitiesPage()),
-            );
-          } else if (index == 3) {
-            // Already on Account page
-          }
-        },
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.medical_services),
-            label: 'Services',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.assignment),
-            label: 'Activities',
-          ),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Account'),
-        ],
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          color: Color(0xFF6BA8A9),
+        ),
+        child: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          backgroundColor: Color(0xFF6BA8A9),
+          selectedItemColor: Colors.white,
+          unselectedItemColor: Colors.white.withOpacity(0.7),
+          currentIndex: 3,
+          onTap: (index) {
+            if (index == 0) {
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(builder: (context) => PetOHomePage()),
+              );
+            } else if (index == 1) {
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(builder: (context) => PetServicesScreen()),
+              );
+            } else if (index == 2) {
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(builder: (context) => PetOActivitiesPage()),
+              );
+            } else if (index == 3) {
+              // Already on Account page
+            }
+          },
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.medical_services),
+              label: 'Services',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.assignment),
+              label: 'Activities',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              label: 'Account',
+            ),
+          ],
+        ),
       ),
+    );
+  }
+
+  Widget _buildAccountItem(BuildContext context, String title, IconData icon, VoidCallback onTap) {
+    return ListTile(
+      leading: Icon(icon, color: Color(0xFF357376)),
+      title: Text(title),
+      trailing: Icon(Icons.arrow_forward_ios),
+      onTap: onTap,
     );
   }
 }

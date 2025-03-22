@@ -4,6 +4,12 @@ import 'petO_home_page.dart'; // Import Pet Owner Home Page
 import 'petO_account_page.dart'; // Import Pet Owner Account Page
 import 'vet_dashboard.dart'; // Import Vet Dashboard
 import 'vet_profile.dart'; // Import Vet Profile
+import 'vet_appointments_page.dart';
+import 'vet_payment_page.dart';
+import 'vetside_settings_page.dart';
+import 'vet_notification_page.dart';
+import 'chat_list_screen.dart';
+import 'vetside_review_page.dart';
 
 import 'package:font_awesome_flutter/font_awesome_flutter.dart'; // For FontAwesomeIcons
 
@@ -48,10 +54,21 @@ class _VetHomePageState extends State<VetHomePage> {
           ),
           actions: [
             IconButton(
-              icon: Icon(Icons.notifications,
-                  color: Colors.black), // Match icon color
+              icon: Icon(Icons.notifications, color: Colors.black),
               onPressed: () {
-                // Handle notifications
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => VetNotificationsPage()),
+                );
+              },
+            ),
+            IconButton(
+              icon: Icon(Icons.message, color: Colors.black),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ChatListScreen()),
+                );
               },
             ),
             IconButton(
@@ -63,13 +80,6 @@ class _VetHomePageState extends State<VetHomePage> {
                       builder: (context) =>
                           VetProfile()), // Navigate to Vet Profile
                 );
-              },
-            ),
-            IconButton(
-              icon:
-                  Icon(Icons.person, color: Colors.black), // Adding person icon
-              onPressed: () {
-                // Handle person action
               },
             ),
           ],
@@ -115,13 +125,7 @@ class _VetHomePageState extends State<VetHomePage> {
                       'Respond',
                       const Color(0xFFF2F2F7),
                     ),
-                    _buildCard(
-                      'Reviews & Ratings',
-                      Icons.star,
-                      '4.8/5 (20 Reviews)',
-                      'View Reviews',
-                      const Color(0xFFF2F2F7),
-                    ),
+                    _buildReviewsAndRatingsCard(),
                   ],
                 ),
               ],
@@ -132,43 +136,41 @@ class _VetHomePageState extends State<VetHomePage> {
           type: BottomNavigationBarType.fixed,
           selectedItemColor: const Color(0xFF357376),
           unselectedItemColor: Colors.grey,
+          currentIndex: 0, // Set to 0 for Home tab
           items: const [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.calendar_today), label: 'Appointments'),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.business),
-                label: 'Insights'), // Changed from 'Services' to 'Insights'
+            BottomNavigationBarItem(icon: Icon(Icons.calendar_today), label: 'Appointments'),
+            BottomNavigationBarItem(icon: Icon(Icons.business), label: 'Insights'),
             BottomNavigationBarItem(icon: Icon(Icons.money), label: 'Payments'),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.settings), label: 'Settings'),
+            BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Settings'),
           ],
           onTap: (index) {
             switch (index) {
               case 0:
-                // Navigate to Home
+                // Already on Home page
                 break;
               case 1:
-                // Navigate to Appointments
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => VetAppointmentsPage()),
+                );
                 break;
               case 2:
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(
-                      builder: (context) =>
-                          VetDashboard()), // Navigate to Vet Dashboard
+                  MaterialPageRoute(builder: (context) => VetDashboard()),
                 );
-
                 break;
               case 3:
-                // Navigate to Payments
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => VetPaymentPage()),
+                );
                 break;
               case 4:
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(
-                      builder: (context) =>
-                          VetProfile()), // Navigate to Vet Profile
+                  MaterialPageRoute(builder: (context) => VetsideSettingsPage()),
                 );
                 break;
             }
@@ -212,7 +214,19 @@ class _VetHomePageState extends State<VetHomePage> {
             Align(
               alignment: Alignment.bottomRight,
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  if (title == 'Next Appointment') {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => VetAppointmentsPage()),
+                    );
+                  } else if (title == "Today's Earnings") {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => VetPaymentPage()),
+                    );
+                  }
+                },
                 child: Text(actionText,
                     style: const TextStyle(color: Color(0xFF357376))),
               ),
@@ -224,6 +238,8 @@ class _VetHomePageState extends State<VetHomePage> {
   }
 
   Widget _buildAvailabilityCard() {
+    bool isAvailable = true; // You should manage this state properly
+
     return Card(
       color: const Color(0xFFF2F2F7),
       elevation: 0,
@@ -236,29 +252,136 @@ class _VetHomePageState extends State<VetHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Icon(Icons.check_circle, size: 32, color: Color(0xFF357376)),
-            const SizedBox(height: 8),
-            const Text(
-              'Availability',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+            Row(
+              children: [
+                Icon(
+                  isAvailable ? Icons.check_circle : Icons.cancel,
+                  size: 32,
+                  color: isAvailable ? const Color(0xFF357376) : Colors.red,
+                ),
+                const SizedBox(width: 12),
+                Text(
+                  'Availability',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500,
+                    color: isAvailable ? const Color(0xFF357376) : Colors.red,
+                  ),
+                ),
+              ],
             ),
-            const SizedBox(height: 4),
-            const Text(
-              'Not Available',
-              style: TextStyle(fontSize: 14, color: Colors.grey),
-            ),
             const SizedBox(height: 8),
+            Text(
+              isAvailable ? 'Available' : 'Not Available',
+              style: TextStyle(
+                fontSize: 14,
+                color: isAvailable ? Colors.green : Colors.red,
+              ),
+            ),
+            const SizedBox(height: 12),
             Align(
               alignment: Alignment.bottomRight,
-              child: Switch(
-                value: false,
-                onChanged: (bool value) {
-                  // Handle availability toggle
+              child: ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    isAvailable = !isAvailable;
+                  });
+                  // Here you should also update the availability status in your backend
                 },
-                activeColor: const Color(0xFF357376),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: isAvailable ? Colors.red : const Color(0xFF357376),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                ),
+                child: Text(
+                  isAvailable ? 'Set Unavailable' : 'Set Available',
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 14,
+                  ),
+                ),
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildReviewsAndRatingsCard() {
+    return Card(
+      color: const Color(0xFFF2F2F7),
+      elevation: 0,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10.0),
+      ),
+      child: InkWell(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => VetsideReviewPage()),
+          );
+        },
+        child: Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  Icon(
+                    Icons.star,
+                    size: 28,
+                    color: const Color(0xFF357376),
+                  ),
+                  const SizedBox(width: 8),
+                  const Text(
+                    'Reviews',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                      color: Color(0xFF357376),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 8),
+              Row(
+                children: [
+                  const Text(
+                    '4.8',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF357376),
+                    ),
+                  ),
+                  const SizedBox(width: 4),
+                  Row(
+                    children: List.generate(
+                      5,
+                      (index) => const Icon(
+                        Icons.star,
+                        size: 14,
+                        color: Colors.amber,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 4),
+              Text(
+                '150 reviews',
+                style: TextStyle(
+                  fontSize: 12,
+                  color: Colors.grey[600],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

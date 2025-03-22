@@ -5,6 +5,7 @@ import 'package:auth_firebase/Entrance/welcome_screen.dart';
 import 'vet_home_page.dart';
 import 'vet_dashboard.dart';
 import 'vet_appointments_page.dart';
+import 'edit_profile_page.dart';
 
 class VetProfile extends StatelessWidget {
   final AuthService _authService = AuthService();
@@ -13,10 +14,29 @@ class VetProfile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: true,
-        title: Text('Veterinarian Profile',
-            style: TextStyle(fontFamily: 'Poppins', color: Colors.white)),
-        backgroundColor: Color(0xFF357376),
+        title: Text(
+          'Profile',
+          style: TextStyle(
+            fontFamily: 'Poppins',
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          ),
+        ),
+        backgroundColor: Colors.white,
+        elevation: 0,
+        iconTheme: IconThemeData(color: Colors.black),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.edit),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => EditProfilePage()),
+              );
+            },
+          ),
+        ],
       ),
       body: Column(
         children: [
@@ -113,7 +133,10 @@ class VetProfile extends StatelessWidget {
           Center(
             child: ElevatedButton(
               onPressed: () {
-                // Navigate to edit profile functionality
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => EditProfilePage()),
+                );
               },
               child: Text('Edit Profile',
                   style: TextStyle(
