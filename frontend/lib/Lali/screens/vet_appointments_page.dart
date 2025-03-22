@@ -3,6 +3,8 @@ import 'vet_home_page.dart';
 import 'vet_dashboard.dart';
 import 'vet_profile.dart'; // Add this import at the top of the file
 import 'petO_account_page.dart';
+import 'vet_payment_page.dart';
+import 'vetside_settings_page.dart';
 
 class VetAppointmentsPage extends StatefulWidget {
   @override
@@ -286,12 +288,15 @@ class _VetAppointmentsPageState extends State<VetAppointmentsPage>
               );
               break;
             case 3:
-              // Navigate to Payments
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => VetPaymentPage()),
+              );
               break;
             case 4:
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => VetProfile()),
+                MaterialPageRoute(builder: (context) => VetsideSettingsPage()),
               );
               break;
           }

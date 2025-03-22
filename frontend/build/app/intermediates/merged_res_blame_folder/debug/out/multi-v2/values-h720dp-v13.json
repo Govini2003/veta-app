@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.auth_firebase.app-mergeDebugResources-44:/values-h720dp-v13/values-h720dp-v13.xml",
+            "outputFile": "com.example.login_signup.app-mergeDebugResources-46:/values-h720dp-v13/values-h720dp-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-3\\1f38692c268e80e229cef1f00499c5d7\\transformed\\appcompat-1.1.0\\res\\values-h720dp-v13\\values-h720dp-v13.xml",
+                    "source": "C:\\Users\\12UCX\\.gradle\\caches\\transforms-3\\1f38692c268e80e229cef1f00499c5d7\\transformed\\appcompat-1.1.0\\res\\values-h720dp-v13\\values-h720dp-v13.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

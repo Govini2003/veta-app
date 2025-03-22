@@ -12,6 +12,8 @@ import 'Entrance/welcome_screen.dart';
 import 'Entrance/wrapper.dart';
 import 'themes/theme.dart';
 import 'InuPetProfile/add_pet_page.dart';
+import 'package:provider/provider.dart';
+import 'Lali/providers/appointments_provider.dart';
 
 class FirebaseInitializer {
   static bool _initialized = false;
@@ -76,7 +78,12 @@ Future<void> initializeApp() async {
 
 void main() async {
   await initializeApp();
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (_) => AppointmentsProvider(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {

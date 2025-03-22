@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'petO_home_page.dart'; // Import Pet Owner Home Page
 import 'petO_account_page.dart'; // Import Pet Owner Account Page
 import 'vet_home_page.dart'; // Import VetHomePage
+import 'vet_appointments_page.dart';
+import 'vet_payment_page.dart';
+import 'vetside_settings_page.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart'; // For FontAwesomeIcons
 
 class VetDashboard extends StatelessWidget {
@@ -9,24 +12,18 @@ class VetDashboard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: true,
         title: Text(
-          'Veta.lk - Vet Dashboard',
+          'Insights',
           style: TextStyle(
             fontFamily: 'Poppins',
             fontSize: 24,
             fontWeight: FontWeight.bold,
+            color: Colors.black,
           ),
         ),
-        backgroundColor: Color(0xFF357376),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.settings),
-            onPressed: () {
-              // Navigate to settings page
-            },
-          ),
-        ],
+        backgroundColor: Colors.white,
+        elevation: 0,
+        iconTheme: IconThemeData(color: Colors.black),
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(16.0),
@@ -130,42 +127,42 @@ class VetDashboard extends StatelessWidget {
         type: BottomNavigationBarType.fixed,
         selectedItemColor: const Color(0xFF357376),
         unselectedItemColor: Colors.grey,
+        currentIndex: 2, // Set to 2 for Insights tab
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.calendar_today), label: 'Appointments'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.business), label: 'Insights'),
+          BottomNavigationBarItem(icon: Icon(Icons.calendar_today), label: 'Appointments'),
+          BottomNavigationBarItem(icon: Icon(Icons.business), label: 'Insights'),
           BottomNavigationBarItem(icon: Icon(Icons.money), label: 'Payments'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.settings), label: 'Settings'),
+          BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Settings'),
         ],
         onTap: (index) {
           switch (index) {
             case 0:
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(
-                    builder: (context) =>
-                        VetHomePage()), // Navigate to Vet Home Page
+                MaterialPageRoute(builder: (context) => VetHomePage()),
               );
               break;
             case 1:
-              // Navigate to Appointments
-              break;
-            case 2:
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(
-                    builder: (context) =>
-                        VetDashboard()), // Navigate to Vet Dashboard
+                MaterialPageRoute(builder: (context) => VetAppointmentsPage()),
               );
               break;
+            case 2:
+              // Already on Insights page
+              break;
             case 3:
-              // Navigate to Payments
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => VetPaymentPage()),
+              );
               break;
             case 4:
-              // Navigate to Settings
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => VetsideSettingsPage()),
+              );
               break;
           }
         },

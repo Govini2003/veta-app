@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'dart:io';
 import 'package:image_picker/image_picker.dart';
 import 'pet_profile_page.dart';
-import 'vaccine_page.dart'; //Import Vaccine Page
-import 'package:uuid/uuid.dart'; //Add this import at the top of the file
+import 'vaccine_page.dart'; // Import Vaccine Page
+import 'package:uuid/uuid.dart'; // Add this import at the top of the file
 
 class AddPetPage extends StatefulWidget {
   final Function(Map<String, dynamic>)? onPetAdded;
