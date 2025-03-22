@@ -83,6 +83,8 @@ flutter run --verbose
 
 #### Hot Reload for Fast Development
 ```bash
+
+
 # Apply changes without restarting the app
 r  # Press 'r' in the terminal while running
 ```
@@ -97,3 +99,4 @@ flutter run
 ## 📂 Project Structure
 
 - Flutter (Mobile App)
+
