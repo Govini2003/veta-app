@@ -82,7 +82,7 @@ class PetServicesScreen extends StatelessWidget {
                     ],
                   ),
 
-                  // Grooming Section
+                  // Pet Grooming Section
                   _buildExpandableService(
                     'Grooming',
                     Icons.content_cut,
