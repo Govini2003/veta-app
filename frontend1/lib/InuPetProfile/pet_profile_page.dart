@@ -278,7 +278,7 @@ class _PetProfilePageState extends State<PetProfilePage> {
           IconButton(
             icon: Icon(Icons.delete),
             onPressed: _showDeleteConfirmation,
-            color: Colors.red,// white
+            color: Colors.white,
           ),
         ],
       ),
