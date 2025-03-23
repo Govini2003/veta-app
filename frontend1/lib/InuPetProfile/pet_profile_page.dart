@@ -340,7 +340,7 @@ class _PetProfilePageState extends State<PetProfilePage> {
                               : const Icon(
                                   Icons.pets,
                                   size: 100,
-                                  color: Colors.red,//white
+                                  color: Colors.white,
                                 ),
                         ),
                       ),
