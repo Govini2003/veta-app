@@ -11,7 +11,7 @@ class FullScreenImage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,//black
       appBar: AppBar(
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.white,//black
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           color: Colors.white,
