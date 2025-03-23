@@ -69,7 +69,7 @@ class _MyPetsPageState extends State<MyPetsPage> {
             fontFamily: 'Poppins',
             fontSize: 24,
             fontWeight: FontWeight.bold,
-            color: Colors.white,//black
+            color: Colors.black,
           ),
         ),
         backgroundColor: Colors.white,
