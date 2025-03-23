@@ -1,3 +1,4 @@
+// veta-app/frontend1/lib/Lali/models/appointment.dart
 class Appointment {
   final String vetName;
   final String vetSpecialty;
