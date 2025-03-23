@@ -144,7 +144,7 @@ class _AddPetPageState extends State<AddPetPage> {
               Text(
                 'Add Pet Details',
                 style: TextStyle(
-                  fontSize: 24,//24
+                  fontSize: 24,
                   fontWeight: FontWeight.bold,
                   color: Color(0xFF1D4D4F),
                 ),
