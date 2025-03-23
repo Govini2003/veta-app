@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:io';
 import 'vaccine_page.dart';
-import 'vaccine_details_page.dart'; // Import the VaccineDetailsPage
+import 'vaccine_details_page.dart';  // Import the VaccineDetailsPage
 import 'full_screen_image.dart'; // Import the FullScreenImage
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
