@@ -133,7 +133,7 @@ class _VaccinePageState extends State<VaccinePage> {
           style: TextStyle(fontWeight: FontWeight.bold, letterSpacing: 1.2),
         ),
         backgroundColor: const Color(0xFF1D4D4F),
-        foregroundColor: Colors.red,//changed it should be changed again as white
+        foregroundColor: Colors.white,
         elevation: 4,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
