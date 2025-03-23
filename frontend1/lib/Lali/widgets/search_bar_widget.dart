@@ -1,3 +1,5 @@
+// veta-app/frontend1/lib/Lali/widgets/search_bar_widget.dart
+
 import 'package:flutter/material.dart';
 
 class SearchBarWidget extends StatelessWidget {
