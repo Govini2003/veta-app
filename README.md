@@ -54,7 +54,7 @@ Veta.lk is a centralized digital platform designed to connect **pet owners** wit
   <img src="https://github.com/user-attachments/assets/e3db3109-bce2-40c7-bfa9-910fda86ec93" width="100">
 </p>
 
-### Admin Panel (Web)
+### Admin Panel
 ✅ Manage platform users (pet owners, vets, pet shops)  
 ✅ Review and approve new business registrations  
 ✅ Monitor reported content (ads, reviews)  
