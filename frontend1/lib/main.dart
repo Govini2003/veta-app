@@ -12,7 +12,7 @@ import 'services/api_service.dart';
 import 'Entrance/welcome_screen.dart';
 import 'Entrance/wrapper.dart';
 import 'themes/theme.dart';
-import 'InuPetProfile/add_pet_page.dart';
+import 'InuPetProfile/add_pet_page.dart';//import add pet page
 import 'package:provider/provider.dart';
 import 'Lali/providers/appointments_provider.dart';
 
