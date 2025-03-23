@@ -161,7 +161,7 @@ class ProfileNavigation {
             mainAxisSize: MainAxisSize.min,
             children: [
               Text('Need assistance? Contact our support team:'),
-              SizedBox(height: 10),
+              SizedBox(height: 15),//10
               Text('Email: support@vetaapp.com'),
               Text('Phone: +1 (555) 123-4567'),
               SizedBox(height: 10),
