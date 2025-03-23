@@ -133,7 +133,7 @@ class _VaccinePageState extends State<VaccinePage> {
           style: TextStyle(fontWeight: FontWeight.bold, letterSpacing: 1.2),
         ),
         backgroundColor: const Color(0xFF1D4D4F),
-        foregroundColor: Colors.white,
+        foregroundColor: Colors.red,//changed it should be changed again as white
         elevation: 4,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
@@ -198,7 +198,7 @@ class _VaccinePageState extends State<VaccinePage> {
         const Text(
           'Vaccine Type',
           style: TextStyle(
-            fontSize: 18,
+            fontSize:15,// it should be 18
             fontWeight: FontWeight.w600,
             color: Color(0xFF1D4D4F),
           ),
@@ -246,7 +246,7 @@ class _VaccinePageState extends State<VaccinePage> {
                 color: Color(0xFF1D4D4F),
                 fontWeight: FontWeight.w500,
               ),
-              dropdownColor: Colors.white,
+              dropdownColor: Colors.blue,//It should be yellow
               icon: Icon(Icons.arrow_drop_down, color: Color(0xFF1D4D4F)),
             ),
           ),
