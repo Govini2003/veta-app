@@ -320,7 +320,7 @@ class _VaccineDetailsPageState extends State<VaccineDetailsPage> {
             child: Text(
               label,
               style: TextStyle(
-                fontSize: 18,//16
+                fontSize: 16,
                 color: Colors.grey[600],
                 fontWeight: FontWeight.w500,
               ),
