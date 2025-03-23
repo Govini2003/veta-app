@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:io';
 import 'package:image_picker/image_picker.dart';
-import 'pet_profile_page.dart';
+import 'pet_profile_page.dart';//import pet profile
 import 'vaccine_page.dart'; // Import Vaccine Page
 import 'package:uuid/uuid.dart'; // Add this import at the top of the file
 
@@ -195,7 +195,7 @@ class _AddPetPageState extends State<AddPetPage> {
                 validator: (value) =>
                 value!.isEmpty ? "Please enter your pet's name" : null,
               ),
-              SizedBox(height: 16),
+              SizedBox(height: 18),//16
               DropdownButtonFormField<String>(
                 decoration: InputDecoration(
                   labelText: 'Species',
