@@ -198,7 +198,7 @@ class _VaccinePageState extends State<VaccinePage> {
         const Text(
           'Vaccine Type',
           style: TextStyle(
-            fontSize:15,// it should be 18
+            fontSize: 18,
             fontWeight: FontWeight.w600,
             color: Color(0xFF1D4D4F),
           ),
