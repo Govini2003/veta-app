@@ -504,7 +504,7 @@ class _VaccinePageState extends State<VaccinePage> {
             boxShadow: [
               BoxShadow(
                 color: Colors.grey.shade200,
-                blurRadius: 8,//8
+                blurRadius: 8,
                 offset: Offset(0, 4),
               )
             ],
