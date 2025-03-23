@@ -278,7 +278,7 @@ class _PetProfilePageState extends State<PetProfilePage> {
           IconButton(
             icon: Icon(Icons.delete),
             onPressed: _showDeleteConfirmation,
-            color: Colors.white,
+            color: Colors.red,// white
           ),
         ],
       ),
@@ -340,7 +340,7 @@ class _PetProfilePageState extends State<PetProfilePage> {
                               : const Icon(
                                   Icons.pets,
                                   size: 100,
-                                  color: Colors.white,
+                                  color: Colors.red,//white
                                 ),
                         ),
                       ),
@@ -364,7 +364,7 @@ class _PetProfilePageState extends State<PetProfilePage> {
                             ),
                             child: Icon(
                               Icons.edit,
-                              color: Colors.white,
+                              color: Colors.blue,// white
                               size: 24,
                             ),
                           ),
