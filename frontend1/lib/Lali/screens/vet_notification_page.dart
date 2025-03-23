@@ -1,3 +1,4 @@
+//veta-app/frontend1/lib/Lali/screens/vet_notification_page.dart
 import 'package:flutter/material.dart';
 
 class VetNotificationsPage extends StatelessWidget {
