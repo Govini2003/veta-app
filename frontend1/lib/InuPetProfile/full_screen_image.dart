@@ -4,7 +4,6 @@ import 'dart:io';
 
 class FullScreenImage extends StatelessWidget {
   final File imageFile;
-
   const FullScreenImage({Key? key, required this.imageFile}) : super(key: key);
 
   @override
@@ -15,7 +14,7 @@ class FullScreenImage extends StatelessWidget {
         backgroundColor: Colors.black,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
-          color: Colors.white,
+          color: Colors.green,//white
           onPressed: () => Navigator.pop(context),
         ),
       ),
