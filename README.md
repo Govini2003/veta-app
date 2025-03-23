@@ -39,9 +39,9 @@ Veta.lk is a centralized digital platform designed to connect **pet owners** wit
 ✅ Post ads for buying/selling pets in the marketplace  
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/b929665c-8406-4afc-ad0e-a5bd8e1aadc2" width="103">
+  <img src="https://github.com/user-attachments/assets/b929665c-8406-4afc-ad0e-a5bd8e1aadc2" width="104">
   <img src="https://github.com/user-attachments/assets/999449c6-0d1e-4cc5-9b7f-fb2e085a8673" width="100">
-    <img src="https://github.com/user-attachments/assets/21b4e8a3-6a8b-4e24-9565-446b8dcf9513" width="100">
+    <img src="https://github.com/user-attachments/assets/21b4e8a3-6a8b-4e24-9565-446b8dcf9513" width="102">
 </p>
 
 
