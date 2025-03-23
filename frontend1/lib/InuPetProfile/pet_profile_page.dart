@@ -364,7 +364,7 @@ class _PetProfilePageState extends State<PetProfilePage> {
                             ),
                             child: Icon(
                               Icons.edit,
-                              color: Colors.blue,// white
+                              color: Colors.white,
                               size: 24,
                             ),
                           ),
