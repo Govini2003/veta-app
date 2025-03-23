@@ -14,7 +14,7 @@ class FullScreenImage extends StatelessWidget {
         backgroundColor: Colors.black,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
-          color: Colors.white,//white
+          color: Colors.white,
           onPressed: () => Navigator.pop(context),
         ),
       ),
