@@ -87,7 +87,7 @@ class AppointmentService {
     }
   }
 
-  // Get available time slots for a vet
+
   Future<List<dynamic>> getVetAvailability(String vetId, String date) async {
     try {
       final response = await _apiService
