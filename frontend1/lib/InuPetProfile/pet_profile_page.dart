@@ -193,7 +193,7 @@ class _PetProfilePageState extends State<PetProfilePage> {
       widget.onSave!(_currentPetPhoto, _currentWeight);
     }
     setState(() {
-      _hasChanges = true;//false
+      _hasChanges = false;//false
     });
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text('Changes saved successfully!')),
