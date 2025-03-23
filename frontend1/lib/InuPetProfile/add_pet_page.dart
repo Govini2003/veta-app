@@ -331,7 +331,7 @@ class _AddPetPageState extends State<AddPetPage> {
               SizedBox(height: 20),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  foregroundColor: Colors.white,
+                  foregroundColor: Colors.blue,//white
                   backgroundColor: Color(0xFF357376),
                   padding: EdgeInsets.symmetric(vertical: 16),
                   shape: RoundedRectangleBorder(
