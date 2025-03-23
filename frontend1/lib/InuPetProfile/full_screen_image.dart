@@ -8,7 +8,17 @@ class FullScreenImage extends StatelessWidget {
   const FullScreenImage({Key? key, required this.imageFile}) : super(key: key);
 
   @override
-
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.black,
+      appBar: AppBar(
+        backgroundColor: Colors.black,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          color: Colors.white,
+          onPressed: () => Navigator.pop(context),
+        ),
+      ),
       body: Center(
         child: InteractiveViewer(
           minScale: 0.5,
