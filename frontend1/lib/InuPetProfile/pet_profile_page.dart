@@ -174,7 +174,7 @@ class _PetProfilePageState extends State<PetProfilePage> {
       final File newPhotoFile = File(image.path);
       setState(() {
         _currentPetPhoto = newPhotoFile;
-        _hasChanges = true;
+        _hasChanges = false;//true
       });
     }
   }
