@@ -117,6 +117,3 @@ flutter pub get
 flutter run
 ```
 
-## 📂 Project Structure
-
-- Flutter (Mobile App)
