@@ -1,0 +1,1 @@
+ D:\\UOW\ Modules\\L5\ SEMESTER\ 2\\Veta\ V's\\frontBackVetaVersion3\\frontBackVeta\\veta-app\\.dart_tool\\flutter_build\\5a9af8f59442f047780bf68067ceb9c0\\native_assets.yaml: 

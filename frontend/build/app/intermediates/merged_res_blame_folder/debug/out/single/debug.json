@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "com.example.login_signup.app-merged_res-48:/drawable_launch_background.xml.flat",
+        "source": "com.example.login_signup.app-main-42:/drawable/launch_background.xml"
+    },
+    {
+        "merged": "com.example.login_signup.app-merged_res-48:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "com.example.login_signup.app-main-42:/mipmap-hdpi/ic_launcher.png"
+    }
+]

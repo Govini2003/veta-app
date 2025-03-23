@@ -8,7 +8,7 @@ const env = {
     // MongoDB Configuration
     MONGODB: {
         URI: process.env.MONGODB_URI,
-        DB_NAME: 'veta_lk_db',
+        DB_NAME: 'PetCareDB',
         OPTIONS: {
             maxPoolSize: process.env.MONGODB_POOL_SIZE || 10,
             connectTimeoutMS: process.env.MONGODB_CONNECT_TIMEOUT || 10000,
