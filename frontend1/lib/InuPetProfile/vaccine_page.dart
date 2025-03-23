@@ -246,7 +246,7 @@ class _VaccinePageState extends State<VaccinePage> {
                 color: Color(0xFF1D4D4F),
                 fontWeight: FontWeight.w500,
               ),
-              dropdownColor: Colors.blue,//It should be yellow
+              dropdownColor: Colors.white,
               icon: Icon(Icons.arrow_drop_down, color: Color(0xFF1D4D4F)),
             ),
           ),
