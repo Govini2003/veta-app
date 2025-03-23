@@ -69,7 +69,7 @@ class PetServicesScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 16),
                   
-                  // Veterinary Section.
+                  // Veterinary Section
                   _buildExpandableService(
                     'Veterinary',
                     Icons.medical_services,
