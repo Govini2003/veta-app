@@ -1,3 +1,5 @@
+//veta-app/frontend1/lib/Entrance/welcome_screen.dart
+
 import 'package:auth_firebase/LoginSignupAuth/login_screen.dart';
 import 'package:auth_firebase/LoginSignupAuth/signup_screen.dart';
 import 'package:auth_firebase/Entrance/EntranceWidgets/button.dart';
