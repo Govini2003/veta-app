@@ -1,6 +1,6 @@
 # Veta.lk - No more struggles for pet owners & vets 🐾
 
-Veta.lk is a centralized digital platform designed to connect **pet owners** with **veterinary services**, **animal clinics**, **pet shops**, and **pharmacies** in Sri Lanka. This mobile application helps users easily find reliable pet care services, book appointments, and access a pet marketplace — all from one convenient app.
+Veta.lk is a centralized digital platform designed to connect **pet owners** with **veterinary services**, **animal clinics**, **pet shops**, and **pharmacies** in Sri Lanka. This mobile application helps users easily find reliable pet care services, book appointments, and access a pet marketplace — all from one convenient app. 
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/1d364b2d-3e84-4359-868b-8183d6c6f586" width="100">
