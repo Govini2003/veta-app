@@ -195,7 +195,7 @@ class _AddPetPageState extends State<AddPetPage> {
                 validator: (value) =>
                 value!.isEmpty ? "Please enter your pet's name" : null,
               ),
-              SizedBox(height: 18),//16
+              SizedBox(height: 16),
               DropdownButtonFormField<String>(
                 decoration: InputDecoration(
                   labelText: 'Species',
