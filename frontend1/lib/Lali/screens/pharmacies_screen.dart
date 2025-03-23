@@ -1,3 +1,4 @@
+//veta-app/frontend1/lib/Lali/screens/pharmacies_screen.dart
 import 'package:flutter/material.dart';
 import '../widgets/search_bar_widget.dart';
 
