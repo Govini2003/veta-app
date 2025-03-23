@@ -3,8 +3,8 @@
 Veta.lk is a centralized digital platform designed to connect **pet owners** with **veterinary services**, **animal clinics**, **pet shops**, and **pharmacies** in Sri Lanka. This mobile application helps users easily find reliable pet care services, book appointments, and access a pet marketplace — all from one convenient app.
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/1d364b2d-3e84-4359-868b-8183d6c6f586" width="500">
-  <img src="https://github.com/user-attachments/assets/85a16487-4433-40a0-a98e-3dbcc7d028cf" width="500">
+  <img src="https://github.com/user-attachments/assets/1d364b2d-3e84-4359-868b-8183d6c6f586" width="100">
+  <img src="https://github.com/user-attachments/assets/85a16487-4433-40a0-a98e-3dbcc7d028cf" width="100">
 </p>
 
 ---
@@ -39,8 +39,8 @@ Veta.lk is a centralized digital platform designed to connect **pet owners** wit
 ✅ Post ads for buying/selling pets in the marketplace  
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/b929665c-8406-4afc-ad0e-a5bd8e1aadc2" width="500">
-  <img src="https://github.com/user-attachments/assets/999449c6-0d1e-4cc5-9b7f-fb2e085a8673" width="500">
+  <img src="https://github.com/user-attachments/assets/b929665c-8406-4afc-ad0e-a5bd8e1aadc2" width="100">
+  <img src="https://github.com/user-attachments/assets/999449c6-0d1e-4cc5-9b7f-fb2e085a8673" width="100">
 </p>
 
 ### Veterinarians & Clinics
@@ -49,7 +49,7 @@ Veta.lk is a centralized digital platform designed to connect **pet owners** wit
 ✅ Upload prescriptions and pet health updates  
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/e3db3109-bce2-40c7-bfa9-910fda86ec93" width="500">
+  <img src="https://github.com/user-attachments/assets/e3db3109-bce2-40c7-bfa9-910fda86ec93" width="100">
 </p>
 
 ### Admin Panel (Web)
@@ -59,7 +59,7 @@ Veta.lk is a centralized digital platform designed to connect **pet owners** wit
 ✅ Generate system reports and analytics  
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/c60a5d5c-e392-4d46-a647-ecce31b20673" width="500">
+  <img src="https://github.com/user-attachments/assets/c60a5d5c-e392-4d46-a647-ecce31b20673" width="100">
 </p>
 
 #### 🏠 Dashboard for Pet Owners
