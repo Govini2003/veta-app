@@ -18,8 +18,8 @@ class _AddPetPageState extends State<AddPetPage> {
   final _formKey = GlobalKey<FormState>();
 
   String? petId; // Add this line to store unique pet ID
-  String? petName;
-  String? species;
+  String? petName;// Add petName
+  String? species;// like dog,cat,fish
   String? breed;
   String? gender;
   DateTime? dateOfBirth;
