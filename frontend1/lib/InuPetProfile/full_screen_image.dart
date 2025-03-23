@@ -9,7 +9,7 @@ class FullScreenImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.white,//black
       appBar: AppBar(
         backgroundColor: Colors.black,
         leading: IconButton(
