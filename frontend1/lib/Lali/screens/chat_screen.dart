@@ -1,4 +1,4 @@
-//veta-app/frontend1/lib/Lali/screens/chat_screen.dart
+//veta-app/frontend1/lib/Lali/screens/chat_screen.dart 
 import 'package:flutter/material.dart';
 
 class ChatScreen extends StatefulWidget {
