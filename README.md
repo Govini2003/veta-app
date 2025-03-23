@@ -4,7 +4,6 @@ Veta.lk is a centralized digital platform designed to connect **pet owners** wit
 
 
 ![Screenshot 2025-02-23 155303](https://github.com/user-attachments/assets/1d364b2d-3e84-4359-868b-8183d6c6f586)
-
 ![Screenshot 2025-03-22 104946](https://github.com/user-attachments/assets/85a16487-4433-40a0-a98e-3dbcc7d028cf)
 
 ---
