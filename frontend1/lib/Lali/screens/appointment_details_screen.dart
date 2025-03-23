@@ -1,3 +1,5 @@
+//veta-app/frontend1/lib/Lali/screens/appointment_details_screen.dart
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
