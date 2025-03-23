@@ -1,3 +1,5 @@
+// veta-app/frontend1/lib/Lali/screens/edit_profile_page.dart
+
 import 'package:flutter/material.dart';
 
 class EditProfilePage extends StatefulWidget {
