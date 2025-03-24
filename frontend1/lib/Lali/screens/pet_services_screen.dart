@@ -177,12 +177,12 @@ class PetServicesScreen extends StatelessWidget {
       ),
     );
   }
-
+ //Builds an Expandable service section
   Widget _buildExpandableService(
     String title,
     IconData icon,
     List<String> services, {
-    bool initiallyExpanded = false,
+    bool initiallyExpanded = false, 
   }) {
     return Card(
       margin: EdgeInsets.only(bottom: 8),
@@ -197,6 +197,7 @@ class PetServicesScreen extends StatelessWidget {
           ),
         ),
         children: services.map((service) {
+          // Adds a switch for 'Pet Sitting' services
           if (title == 'Pet Sitting' && initiallyExpanded) {
             return ListTile(
               title: Text(service),
