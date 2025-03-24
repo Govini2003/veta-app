@@ -1,3 +1,4 @@
+//backend1/src/config/database.js
 const mongoose = require('mongoose');
 const env = require('./env');
 
