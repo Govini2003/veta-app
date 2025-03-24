@@ -28,7 +28,7 @@ class PetServicesScreen extends StatelessWidget {
             // Find a Vet Button
             Padding(
               padding: const EdgeInsets.all(16.0),
-              //Navigate to VetScreen ehrn button is pressed
+              //Navigate to VetScreen when button is pressed
               child: ElevatedButton(
                 onPressed: () {
                   Navigator.push(
