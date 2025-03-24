@@ -1,3 +1,4 @@
+//backend1/src/routes/authMiddleware.js
 const User = require('./User');
 const admin = require('firebase-admin');
 
