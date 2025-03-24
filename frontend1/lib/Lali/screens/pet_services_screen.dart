@@ -54,7 +54,7 @@ class PetServicesScreen extends StatelessWidget {
               ),
             ),
 
-            // Available Services Section
+            // Available Services Section.
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Column(
@@ -70,7 +70,7 @@ class PetServicesScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 16), // spacing between title and list
                   
-                  // Veterinary Section
+                  // Veterinary Section.
                   _buildExpandableService(
                     'Veterinary',
                     Icons.medical_services,
