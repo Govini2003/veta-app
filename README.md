@@ -112,6 +112,7 @@ flutter run --verbose
 ```bash
 # Apply changes without restarting the app
 r  # Press 'r' in the terminal while running
+
 ```
 
 #### Clean & Rebuild
@@ -119,5 +120,6 @@ r  # Press 'r' in the terminal while running
 flutter clean
 flutter pub get
 flutter run
+
 ```
 
