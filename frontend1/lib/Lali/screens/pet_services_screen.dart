@@ -68,7 +68,7 @@ class PetServicesScreen extends StatelessWidget {
                       color: Colors.black,
                     ),
                   ),
-                  SizedBox(height: 16),
+                  SizedBox(height: 16), // spacing between title and list
                   
                   // Veterinary Section
                   _buildExpandableService(
