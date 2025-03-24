@@ -25,10 +25,10 @@ class PetServicesScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            // Find a Vet Button
+            // Find a Vet Button.
             Padding(
               padding: const EdgeInsets.all(16.0),
-              //Navigate to the VetScreen when button is pressed
+              //Navigate to  VetScreen when button is pressed
               child: ElevatedButton(
                 onPressed: () {
                   Navigator.push(
