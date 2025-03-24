@@ -54,7 +54,7 @@ class PetServicesScreen extends StatelessWidget {
               ),
             ),
 
-            // Available Services Section.
+            // Available Services Section
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Column(
