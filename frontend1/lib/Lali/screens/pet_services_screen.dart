@@ -19,7 +19,7 @@ class PetServicesScreen extends StatelessWidget {
           ),
         ),
         backgroundColor: Colors.white,
-        elevation: 0, //Removes  shadow under the AppBar
+        elevation: 0, //Removes the shadow under the AppBar
       ),
       body: SingleChildScrollView(
         child: Column(
