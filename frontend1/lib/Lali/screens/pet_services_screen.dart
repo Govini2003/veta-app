@@ -25,7 +25,7 @@ class PetServicesScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            // Find a Vet Button.
+            // Find a Vet Button
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: ElevatedButton(
