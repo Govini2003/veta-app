@@ -1,4 +1,4 @@
-//backend1/src/controllers/appointmentController.js
+//veta-app/backend1/src/controllers/appointmentController.js
 const Appointment = require('../models/Appointment');
 
 // Create new appointment
