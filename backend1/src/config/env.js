@@ -1,4 +1,4 @@
-//backend1/src/config/env.js
+//veta-app/backend1/src/config/env.js
 require('dotenv').config();
 
 const env = {
