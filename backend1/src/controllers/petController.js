@@ -1,4 +1,4 @@
-//backend1/src/controllers/appointmentController.js
+//backend1/src/controllers/petController.js
 const Pet = require('../models/Pet');
 
 // Create new pet
